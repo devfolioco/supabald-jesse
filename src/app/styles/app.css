@@ -1,0 +1,143 @@
+/* Imports */
+
+@font-face {
+  font-family: 'Nyght Serif';
+  src: url('/fonts/NyghtSerif-Regular.woff');
+}
+
+@font-face {
+  font-family: 'Nyght Serif';
+  src: url('/fonts/NyghtSerif-Bold.woff');
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-ExtraLight.ttf');
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('/fonts/NunitoSans_7pt-Light.ttf');
+}
+
+/* Imports End */
+
+.bg-grid {
+  background-image: url('/grid.png');
+}
+
+.hero-heading {
+  color: #f3f3f3;
+  font-family: 'Nyght Serif';
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.hero-heading-700 {
+  color: #f3f3f3;
+  font-family: 'Nyght Serif';
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.ui-text {
+  color: #f3f3f3;
+  font-family: 'Inter';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 30px;
+}
+
+.button {
+  display: flex;
+  padding: 16px 56px 20px 56px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+
+  font-family: 'Nyght Serif';
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.primary-button {
+  background-color: white;
+  color: var(--primary);
+}
+
+.secondary-button {
+  background-color: var(--primary);
+  color: white;
+}
+
+.step-item .step-item-label {
+  border-radius: 16px;
+  border: 3px solid #7d98a6;
+  background: var(--primary);
+}
+
+.step-item .step-item-id {
+  background: #7da3b6;
+  width: 98px;
+  height: 98px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow:
+    0px 1px 5px 0px rgba(3, 0, 92, 0.09),
+    0px 6px 16px 0px rgba(3, 0, 92, 0.12);
+  position: relative;
+  top: 21px;
+}
+
+.video-container {
+  border-radius: 24px;
+  background: #99b6c5;
+  position: relative;
+}
+
+.video-container video {
+  border-radius: 24px;
+}
+
+.video-container .control-btn {
+  border-radius: 50%;
+  position: absolute;
+  background-color: rgba(99, 133, 150);
+  width: 100px;
+  height: 100px;
+}
+
+.video-container .video-overlay {
+  border-radius: 24px;
+  background-color: rgba(99, 133, 150, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-container .control-btn .play-btn {
+  opacity: 1;
+}
+
+.footer {
+  color: #8e989c;
+  /* UI / 18 */
+  font-family: 'Nunito Sans';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 133.333% */
+  border-top: 1px solid #e4eaeb;
+}
