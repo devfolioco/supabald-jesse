@@ -7,12 +7,28 @@ import StepItem from './components/StepItem';
 import Video from './components/Video';
 import SecondaryButton from './components/SecondaryButton';
 import Footer from './components/Footer';
+import { getFrameMetadata } from 'frog/next';
+import type { Metadata } from 'next';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const frameTags = await getFrameMetadata(`${process.env.VERCEL_URL || 'http://localhost:3000'}/api`);
+  return {
+    other: frameTags,
+  };
+}
 
 export default function Home() {
   return (
     <main className="flex flex-col items-center min-h-screen w-screen bg-grid">
       <section className="flex flex-col items-center min-h-screen">
-        <Image src="/nft.gif" width="0" height="0" alt="NFT" className="w-40 h-40 md:w-80 md:h-80 mt-20 mb-6" />
+        <Image
+          src="/nft.gif"
+          width="0"
+          height="0"
+          alt="NFT"
+          className="w-40 h-40 md:w-80 md:h-80 mt-20 mb-6"
+          unoptimized
+        />
         <div className="max-width-[560px] text-center">
           <h1 className="text-[68px] hero-heading">let’s get Jesse bald!</h1>
           <Ui>Participate in the buildathon. Get more assets on Base.</Ui>
