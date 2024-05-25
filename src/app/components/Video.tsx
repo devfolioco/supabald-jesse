@@ -8,20 +8,6 @@ const Video = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  // https://stackoverflow.com/questions/68175873/detect-element-reference-height-change
-
-  // useEffect(() => {
-  //   if (!videoRef.current) return;
-  //   const resizeObserver = new ResizeObserver(() => {
-  //     // Do what you want to do when the size of the element changes
-  //     if (!videoRef.current) return;
-  //     console.log(videoRef.current.clientHeight);
-  //     document.documentElement.style.setProperty('--hero-video--height', `${videoRef.current.clientHeight}px`);
-  //   });
-  //   resizeObserver.observe(videoRef.current);
-  //   return () => resizeObserver.disconnect(); // clean up
-  // }, [videoRef]);
-
   const togglePlayPause = () => {
     if (videoRef.current) {
       if (!isPlaying) {
