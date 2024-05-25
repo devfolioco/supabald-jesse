@@ -1,11 +1,11 @@
 /** @jsxImportSource frog/jsx */
 
-import { homeSectionElement } from '@/app/components/sections/HomeSection';
 import { Button, Frog, TextInput } from 'frog';
 import { devtools } from 'frog/dev';
 // import { neynar } from 'frog/hubs'
 import { handle } from 'frog/next';
 import { serveStatic } from 'frog/serve-static';
+import satori from 'satori';
 
 const app = new Frog({
   assetsPath: '/',
@@ -68,6 +68,7 @@ app.frame('/', c => {
   });
 });
 
+// Todo
 app.frame('/jesse', c => {
   const { buttonValue, inputText, status } = c;
   return c.res({
