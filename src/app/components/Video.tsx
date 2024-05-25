@@ -8,6 +8,17 @@ const Video = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
+  useEffect(() => {
+    if (!videoRef.current) return;
+    const resizeObserver = new ResizeObserver(() => {
+      // Do what you want to do when the size of the element changes
+      console.log(videoRef.current?.clientHeight);
+      document.documentElement.style.setProperty('--video-height', `${videoRef.current?.clientHeight ?? 0}px`);
+    });
+    resizeObserver.observe(videoRef.current);
+    return () => resizeObserver.disconnect(); // clean up
+  }, []);
+
   const togglePlayPause = () => {
     if (videoRef.current) {
       if (!isPlaying) {
