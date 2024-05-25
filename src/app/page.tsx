@@ -12,24 +12,24 @@ import Footer from './components/Footer';
 export default function Home() {
   return (
     <main className="flex flex-col items-center min-h-screen w-screen bg-grid">
-      <section className="flex flex-col items-center">
-        <Image src={'/nft.gif'} width={328} height={328} alt="NFT" className="mt-[79px] mb-[24px]" />
+      <section className="flex flex-col items-center min-h-screen">
+        <Image src={'/nft.gif'} width="0" height="0" alt="NFT" className="w-40 h-40 md:w-80 md:h-80 mt-20 mb-6" />
         <div className="max-width-[560px] text-center">
           <h1 className="text-[68px] hero-heading">let’s get Jesse bald!</h1>
           <Ui>Participate in the buildathon. Get more assets on Base.</Ui>
           <Ui>Help us get Jesse bald.</Ui>
         </div>
-        <PrimaryButton className="mt-[32px]">Register Now</PrimaryButton>
+        <PrimaryButton className="mt-8">Register Now</PrimaryButton>
       </section>
 
-      <section className="mt-[121px]">
+      <section className="mt-16 md:mt-28">
         <OnchainTypography />
       </section>
 
-      <section className="mt-[176px]">
-        <div className="grid grid-cols-2 gap-[48px] max-w-screen-lg">
+      <section className="mt-24 md:mt-44">
+        <div className="grid grid-rows-2 md:grid-cols-2 gap-4 md:gap-12 max-w-screen-lg px-4 md:px-0">
           <h1 className="text-[48px] hero-heading ">Register for the buildathon on Devfolio.</h1>
-          <div className="flex flex-col gap-[56px]">
+          <div className="flex flex-col gap-14">
             <Ui>
               Jesse has committed to shaving his head when Base reaches 10 Billion TVL. We need your help to make it
               happen. Jesse has committed to shaving his head when Base reaches 10 Billion TVL. Jesse has committed to

@@ -15,11 +15,6 @@
   src: url('/fonts/Inter-ExtraLight.ttf');
 }
 
-@font-face {
-  font-family: 'Nunito Sans';
-  src: url('/fonts/NunitoSans_7pt-Light.ttf');
-}
-
 /* Imports End */
 
 .bg-grid {
@@ -133,11 +128,10 @@
 
 .footer {
   color: #8e989c;
-  /* UI / 18 */
-  font-family: 'Nunito Sans';
+  font-family: 'Inter';
   font-size: 18px;
   font-style: normal;
-  font-weight: 400;
-  line-height: 24px; /* 133.333% */
+  font-weight: 200;
+  line-height: 24px;
   border-top: 1px solid #e4eaeb;
 }
