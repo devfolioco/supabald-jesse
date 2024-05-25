@@ -40,7 +40,6 @@
 .ui-text {
   color: #f3f3f3;
   font-family: 'Inter';
-  font-size: 20px;
   font-style: normal;
   font-weight: 200;
   line-height: 30px;
@@ -48,13 +47,11 @@
 
 .button {
   display: flex;
-  padding: 16px 56px 20px 56px;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
 
   font-family: 'Nyght Serif';
-  font-size: 24px;
   font-style: normal;
   font-weight: 700;
   line-height: 32px;
