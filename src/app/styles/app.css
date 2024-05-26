@@ -67,6 +67,12 @@
   color: white;
 }
 
+.outlined-button {
+  background-color: transparent;
+  color: white;
+  border: 2px solid #7d98a6;
+}
+
 .step-item .step-item-label {
   border-radius: 16px;
   border: 3px solid #7d98a6;
