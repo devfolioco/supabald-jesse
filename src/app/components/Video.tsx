@@ -12,7 +12,6 @@ const Video = () => {
     if (!videoContainerRef.current) return;
     const resizeObserver = new ResizeObserver(() => {
       // Do what you want to do when the size of the element changes
-      console.log(videoContainerRef.current?.clientHeight);
       document.documentElement.style.setProperty('--video-height', `${videoContainerRef.current?.clientHeight ?? 0}px`);
     });
     resizeObserver.observe(videoContainerRef.current);

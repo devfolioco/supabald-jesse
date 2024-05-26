@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Ui from '../Ui';
 import Button from '../Button';
 
-const HomeSection = () => {
+const HomeSection = ({ registrationUrl }: { registrationUrl: string }) => {
   return (
     <section className="flex flex-col items-center px-6 md:px-8 lg:px-0">
       <Image
@@ -22,7 +22,7 @@ const HomeSection = () => {
         </Ui>
       </div>
       <div className="w-full flex flex-col md:flex-row gap-[16px] md:gap-[24px] mt-8">
-        <Button href="https://devfolio.co/onchain-summer/dashboard" variant="primary" className="w-full">
+        <Button href={registrationUrl} variant="primary" className="w-full">
           Register Now
         </Button>
         <Button href="#why" variant="outlined" className="w-full">

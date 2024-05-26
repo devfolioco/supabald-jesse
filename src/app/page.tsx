@@ -2,7 +2,6 @@ import './styles/app.css';
 import Ui from './components/Ui';
 import OnchainTypography from './components/OnchainTypography';
 import StepItem from './components/StepItem';
-import Video from './components/Video';
 import Footer from './components/Footer';
 import { getFrameMetadata } from 'frog/next';
 import type { Metadata } from 'next';
@@ -18,10 +17,12 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function Home() {
+export default function Home({ searchParams }: { searchParams: { ref_code?: string } }) {
+  const referralCode = searchParams.ref_code;
+  const registrationUrl = `https://devfolio.co/onchain-summer/dashboard?${referralCode ? 'ref_code=' + referralCode : ''}`;
   return (
     <main className="flex flex-col items-center min-h-screen w-screen bg-grid">
-      <HomeSection />
+      <HomeSection registrationUrl={registrationUrl} />
       <TypographySection />
       <section id="why" className="px-6 md:px-8 lg:px-52 mt-24 md:pt-44">
         <div className="flex flex-col md:grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-4 md:gap-12">
@@ -39,7 +40,7 @@ export default function Home() {
               </p>
             </Ui>
 
-            <Button href="https://devfolio.co/onchain-summer/dashboard" variant="primary" className="w-full">
+            <Button href={registrationUrl} variant="primary" className="w-full">
               <span className="block md:hidden lg:block"> Register now on Devfolio </span>
               <span className=" hidden md:block lg:hidden"> Register now </span>
             </Button>
@@ -76,7 +77,7 @@ export default function Home() {
       </section>
 
       <section className="bg-white px-6 md:px-8 lg:px-52 bg-grid-white flex flex-col items-center w-full">
-        <Button href="https://devfolio.co/onchain-summer/dashboard" variant="secondary">
+        <Button href={registrationUrl} variant="secondary">
           Register & mint your NFT
         </Button>
         <Footer />
