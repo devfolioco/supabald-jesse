@@ -3,6 +3,10 @@
   --text-color: #fff;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: var(--text-color);
   background: var(--primary);

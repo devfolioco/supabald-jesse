@@ -2,8 +2,7 @@
 
 import Image from 'next/image';
 import Ui from '../Ui';
-import PrimaryButton from '../PrimaryButton';
-import OutlinedButton from '../OutlinedButton';
+import Button from '../Button';
 
 const HomeSection = () => {
   return (
@@ -17,14 +16,18 @@ const HomeSection = () => {
         unoptimized
       />
       <div className="max-width-[560px] text-center flex flex-col items-center">
-        <h1 className="text-[56px] md:text-[68px] hero-heading mb-[16px]">let’s get Jesse bald!</h1>
+        <h1 className="text-[56px] md:text-[68px] hero-heading mb-[16px]">Let’s get Jesse bald!</h1>
         <Ui className="max-w-[326px] md:max-w-[523px] lg:max-w-[643px]">
-          Build the next based experience at the Onchain Summer Buildathon and watch Jesse go bald ;)
+          Build the next based experience at the Onchain Summer Buildathon and watch Jesse go bald ; )
         </Ui>
       </div>
       <div className="w-full flex flex-col md:flex-row gap-[16px] md:gap-[24px] mt-8">
-        <PrimaryButton className="w-full">Register Now</PrimaryButton>
-        <OutlinedButton className="w-full">Why would he go bald?</OutlinedButton>
+        <Button href="https://devfolio.co/onchain-summer/dashboard" variant="primary" className="w-full">
+          Register Now
+        </Button>
+        <Button href="#why" variant="outlined" className="w-full">
+          Why would he go bald?
+        </Button>
       </div>
     </section>
   );
