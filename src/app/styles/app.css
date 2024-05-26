@@ -65,6 +65,12 @@
   font-style: normal;
   font-weight: 700;
   line-height: 32px;
+
+  transition: 0.2s all linear;
+}
+
+.button:hover {
+  opacity: 0.8;
 }
 
 .primary-button {
@@ -155,4 +161,21 @@
 
 .negative-margin-50-video {
   margin-bottom: calc(-1 * (var(--video-height)) / 2);
+}
+
+/* Youtube Embed CSS */
+
+.yt-video-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.yt-video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
