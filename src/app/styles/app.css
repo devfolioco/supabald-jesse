@@ -1,27 +1,6 @@
-/* Imports */
-
-@font-face {
-  font-family: 'Nyght Serif';
-  src: url('/fonts/NyghtSerif-Regular.woff');
+.bg-primary {
+  background-color: var(--primary);
 }
-
-@font-face {
-  font-family: 'Nyght Serif';
-  src: url('/fonts/NyghtSerif-Bold.woff');
-}
-
-/* 
-@font-face {
-  font-family: 'Nyght Serif';
-  src: url('/fonts/NyghtSerif-Light.woff');
-} */
-
-@font-face {
-  font-family: 'Inter';
-  src: url('/fonts/Inter-ExtraLight.ttf');
-}
-
-/* Imports End */
 
 .bg-grid {
   background-image: url('/grid.png');
@@ -33,25 +12,22 @@
 
 .hero-heading {
   color: #f3f3f3;
-  font-family: 'Nyght Serif';
   font-style: normal;
-  font-weight: 500;
+  font-weight: bold;
   line-height: 110%;
 }
 
 .hero-heading-700 {
   color: #f3f3f3;
-  font-family: 'Nyght Serif';
-  font-style: normal;
   font-weight: 700;
-  line-height: 110%;
+  line-height: 130%;
 }
 
 .ui-text {
   color: #f3f3f3;
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 200;
+  font-weight: 300;
   line-height: 150%;
 }
 
@@ -60,12 +36,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-
-  font-family: 'Nyght Serif';
-  font-style: normal;
-  font-weight: 700;
   line-height: 32px;
-
   transition: 0.2s all linear;
 }
 
@@ -90,15 +61,16 @@
 }
 
 .step-item .step-item-label {
-  border-radius: 16px;
   border: 3px solid #7d98a6;
   background: var(--primary);
 }
 
+.step-item a {
+  width: 100%;
+}
+
 .step-item .step-item-id {
   background: #7da3b6;
-  width: 98px;
-  height: 98px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -111,7 +83,6 @@
 }
 
 .video-container {
-  border-radius: 24px;
   background: #99b6c5;
   position: relative;
 }
@@ -178,4 +149,35 @@
   height: 100%;
   width: 100%;
   position: absolute;
+}
+
+.animate-heartbeat {
+  animation: heartbeat 1s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(0.9);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.9);
+  }
+}
+
+.ios-peek {
+  position: fixed;
+  z-index: -1;
+  bottom: 0;
+  left: 0;
+  padding-top: 100px;
+  width: 100vw;
+  background: white;
+  color: #aeb4b7;
+  text-align: center;
+  font-size: 0.7rem;
 }
