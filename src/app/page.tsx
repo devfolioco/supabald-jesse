@@ -3,7 +3,7 @@ import Ui from './components/Ui';
 import OnchainTypography from './components/OnchainTypography';
 import StepItem from './components/StepItem';
 import Footer from './components/Footer';
-import { getFrameMetadata } from 'frog/next';
+import { getFrameMetadata, isFrameRequest } from 'frog/next';
 import type { Metadata } from 'next';
 import HomeSection from './components/sections/HomeSection';
 import TypographySection from './components/sections/TypographySection';
@@ -11,6 +11,7 @@ import Button from './components/Button';
 import { YoutubePlayer } from './components/YoutubePlayer';
 
 import { APP_URL } from './utils/shared';
+import { headers } from 'next/headers';
 
 export async function generateMetadata(): Promise<Metadata> {
   const url = APP_URL
@@ -22,6 +23,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function Home({ searchParams }: { searchParams: { ref_code?: string } }) {
+
+  // https://frog.fm/platforms/next#bonus-page--frame-co-location
+  if (isFrameRequest(headers())) return null
+
   const referralCode = searchParams.ref_code;
   const registrationUrl = `https://devfolio.co/onchain-summer/dashboard?${referralCode ? 'ref_code=' + referralCode : ''}`;
   return (
