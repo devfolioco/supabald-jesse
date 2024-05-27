@@ -10,10 +10,13 @@ import TypographySection from './components/sections/TypographySection';
 import Button from './components/Button';
 import { YoutubePlayer } from './components/YoutubePlayer';
 
+import { APP_URL } from './utils/shared';
+
 export async function generateMetadata(): Promise<Metadata> {
-  const frameTags = await getFrameMetadata(`${process.env.VERCEL_URL || 'http://localhost:3000'}/api`);
+  const frameMetadata = await getFrameMetadata(`${APP_URL}/api`);
+
   return {
-    other: frameTags,
+    other: frameMetadata,
   };
 }
 
