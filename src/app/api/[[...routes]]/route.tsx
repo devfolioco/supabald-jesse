@@ -1,82 +1,47 @@
 /** @jsxImportSource frog/jsx */
-
-import { Button, Frog, TextInput } from 'frog';
-import { devtools } from 'frog/dev';
-// import { neynar } from 'frog/hubs'
-import { handle } from 'frog/next';
-import { serveStatic } from 'frog/serve-static';
-import satori from 'satori';
+import { Button, Frog, TextInput } from 'frog'
+import { handle } from 'frog/next'
+import { devtools } from 'frog/dev'
+import { serveStatic } from 'frog/serve-static'
+import { APP_URL, OPENSEA_COLLECTION } from '../../utils/shared'
 
 const app = new Frog({
-  assetsPath: '/',
   basePath: '/api',
-  // Supply a Hub to enable frame verification.
-  // hub: neynar({ apiKey: 'NEYNAR_FROG_FM' })
-});
+  browserLocation: '/:path',
+})
 
-// Uncomment to use Edge Runtime
-// export const runtime = 'edge'
+app.frame('/', (c) => {
+  return c.res({
+    title: 'SupaBald Jesse | Onchain Summer Buildathon',
+    image: `${APP_URL}/nft-fc.gif`,
+    intents: [
+      <Button.Link key={1} href={APP_URL}>Mint your NFT</Button.Link>,
+      <Button.Link key={2} href={OPENSEA_COLLECTION}>View Collection</Button.Link>,
+    ]
+  })
+})
 
-app.frame('/', c => {
-  const { buttonValue, inputText, status } = c;
-  const fruit = inputText || buttonValue;
+app.frame('/test', (c) => {
+  const { buttonValue, status } = c
   return c.res({
     image: (
-      <div
-        style={{
-          alignItems: 'center',
-          background: status === 'response' ? 'linear-gradient(to right, #432889, #17101F)' : 'black',
-          backgroundSize: '100% 100%',
-          display: 'flex',
-          flexDirection: 'column',
-          flexWrap: 'nowrap',
-          height: '100%',
-          justifyContent: 'center',
-          textAlign: 'center',
-          width: '100%',
-        }}
-      >
-        <div
-          style={{
-            color: 'white',
-            fontSize: 60,
-            fontStyle: 'normal',
-            letterSpacing: '-0.025em',
-            lineHeight: 1.4,
-            marginTop: 30,
-            padding: '0 120px',
-            whiteSpace: 'pre-wrap',
-          }}
-        >
-          {status === 'response' ? `Nice choice.${fruit ? ` ${fruit.toUpperCase()}!!` : ''}` : 'Welcome!'}
-        </div>
+      <div style={{ color: 'white', display: 'flex', fontSize: 60 }}>
+        {status === 'initial' ? (
+          'Select your fruit!'
+        ) : (
+          `Selected: ${buttonValue}`
+        )}
       </div>
     ),
     intents: [
-      <TextInput key="input" placeholder="Enter custom fruit..." />,
-      <Button key="btn-1" value="apples">
-        Apples
-      </Button>,
-      <Button key="btn-2" value="oranges">
-        Oranges
-      </Button>,
-      <Button key="btn-3" value="bananas">
-        Bananas
-      </Button>,
-      status === 'response' && <Button.Reset>Reset</Button.Reset>,
-    ],
-  });
-});
+      <Button key={1} value="apple">Apple</Button>,
+      <Button key={2} value="banana">Banana</Button>,
+      <Button key={3} value="mango">Mango</Button>
+    ]
+  })
+})
 
-// Todo
-app.frame('/jesse', c => {
-  const { buttonValue, inputText, status } = c;
-  return c.res({
-    image: <div style={{ color: 'white' }}>Hello</div>,
-  });
-});
+devtools(app, { serveStatic })
 
-devtools(app, { serveStatic });
-
-export const GET = handle(app);
-export const POST = handle(app);
+export const GET = handle(app)
+export const POST = handle(app)
