@@ -22,7 +22,7 @@ const StepGrid = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{
-        amount: 0,
+        amount: 0.5,
         once: true,
       }}
       exit="hidden"

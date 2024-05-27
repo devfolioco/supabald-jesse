@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import Ui from '../Ui';
-import Button from '../Button';
-import Heading from '../Heading';
+import Ui from '../components/Ui';
+import Button from '../components/Button';
+import Heading from '../components/Heading';
 
 const HomeSection = ({ registrationUrl }: { registrationUrl: string }) => {
   return (
-    <section className="flex flex-col items-center px-6 md:px-8 lg:px-0">
+    <section className="flex flex-col items-center px-6 md:px-8 lg:px-0 min-h-screen">
       <Image
         src="/nft.gif"
         width="0"

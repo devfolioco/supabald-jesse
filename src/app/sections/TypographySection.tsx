@@ -1,4 +1,4 @@
-import OnchainTypography from '../OnchainTypography';
+import OnchainTypography from '../components/OnchainTypography';
 
 const TypographySection = () => {
   return (
