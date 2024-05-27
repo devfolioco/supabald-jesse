@@ -23,14 +23,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function Home({ searchParams }: { searchParams: { ref_code?: string } }) {
-
-  console.log("ENV 2", APP_URL, process.env.VERCEL_URL)
-
-  // https://frog.fm/platforms/next#bonus-page--frame-co-location
-  if (isFrameRequest(headers())) return null
-
   const referralCode = searchParams.ref_code;
   const registrationUrl = `https://devfolio.co/onchain-summer/dashboard?${referralCode ? 'ref_code=' + referralCode : ''}`;
+
   return (
     <main className="flex flex-col items-center min-h-screen w-screen bg-grid">
       <HomeSection registrationUrl={registrationUrl} />
