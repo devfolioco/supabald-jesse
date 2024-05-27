@@ -1,28 +1,3 @@
-/* Imports */
-
-@font-face {
-  font-family: 'Nyght Serif';
-  src: url('/fonts/NyghtSerif-Regular.woff');
-}
-
-@font-face {
-  font-family: 'Nyght Serif';
-  src: url('/fonts/NyghtSerif-Bold.woff');
-}
-
-/* 
-@font-face {
-  font-family: 'Nyght Serif';
-  src: url('/fonts/NyghtSerif-Light.woff');
-} */
-
-@font-face {
-  font-family: 'Inter';
-  src: url('/fonts/Inter-ExtraLight.ttf');
-}
-
-/* Imports End */
-
 .bg-primary {
   background-color: var(--primary);
 }
@@ -37,9 +12,8 @@
 
 .hero-heading {
   color: #f3f3f3;
-  font-family: 'Nyght Serif';
   font-style: normal;
-  font-weight: 500;
+  font-weight: bold;
   line-height: 110%;
 }
 
@@ -55,7 +29,7 @@
   color: #f3f3f3;
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 200;
+  font-weight: 300;
   line-height: 150%;
 }
 
@@ -64,12 +38,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-
-  font-family: 'Nyght Serif';
-  font-style: normal;
-  font-weight: 700;
   line-height: 32px;
-
   transition: 0.2s all linear;
 }
 
@@ -97,6 +66,10 @@
   border-radius: 16px;
   border: 3px solid #7d98a6;
   background: var(--primary);
+}
+
+.step-item a {
+  width: 100%;
 }
 
 .step-item .step-item-id {

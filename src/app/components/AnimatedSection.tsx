@@ -23,7 +23,7 @@ const AnimatedSection = ({ children, ...props }: MotionProps & React.ComponentPr
       whileInView="visible"
       exit="hidden"
       viewport={{
-        amount: 0.3,
+        amount: 0.2,
         once: true,
       }}
       {...props}

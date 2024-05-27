@@ -5,7 +5,7 @@ import Ui from '../components/Ui';
 
 const MintStepsGridSection = () => {
   return (
-    <AnimatedSection className="px-6 md:px-8 lg:px-52 mt-52 w-screen">
+    <AnimatedSection className="px-6 md:px-8 lg:px-52 pt-52 w-screen">
       <div className="flex flex-col items-center">
         <Heading className="md:text-center">Mint your SupaBald Jesse NFT</Heading>
         <Ui className="md:text-center my-[16px] max-w-[345px] md:max-w-[500px] lg:max-w-[763px]">

@@ -32,7 +32,7 @@ const OnchainTypography = () => {
       whileInView="visible"
       exit="hidden"
       viewport={{
-        amount: 0.3,
+        amount: 0,
         once: true,
       }}
     >
@@ -40,7 +40,7 @@ const OnchainTypography = () => {
       {isDesktop && (
         <>
           <motion.img
-            src="/onchain-d2.svg"
+            src="/onchain-d1.svg"
             alt="Onchain Summer"
             className="h-48 w-full object-cover"
             style={{ objectPosition: objectPositionMoveLeft }}
