@@ -45,7 +45,7 @@ export default function RootLayout({
         />
         <meta name="twitter:image" content="/og-image.png" />
       </Head>
-      <body className={`${inter.className}`}>
+      <body>
         {children}
         <ApplePeekArea />
       </body>

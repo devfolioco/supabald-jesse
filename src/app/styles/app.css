@@ -13,20 +13,18 @@
 .hero-heading {
   color: #f3f3f3;
   font-style: normal;
-  font-weight: bold;
+  font-weight: normal;
   line-height: 110%;
 }
 
 .hero-heading-700 {
   color: #f3f3f3;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 130%;
 }
 
 .ui-text {
   color: #f3f3f3;
-  font-family: 'Inter';
-  font-style: normal;
   font-weight: 300;
   line-height: 150%;
 }
@@ -116,7 +114,6 @@
 
 .footer {
   color: #8e989c;
-  font-family: 'Inter';
   font-style: normal;
   line-height: 24px;
   border-top: 1px solid #e4eaeb;
@@ -174,7 +171,7 @@
   z-index: -1;
   bottom: 0;
   left: 0;
-  padding-top: 100px;
+  padding-top: 50vh;
   width: 100vw;
   background: white;
   color: #aeb4b7;

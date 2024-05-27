@@ -11,4 +11,9 @@ export const nyghtBold = localFont({
   display: 'swap',
 });
 
+export const nyghtMedium = localFont({
+  src: '../fonts/NyghtSerif-Medium.woff2',
+  display: 'swap',
+});
+
 export const inter = Inter({ subsets: ['latin'] });
