@@ -22,7 +22,7 @@ const HomeSection = ({ registrationUrl }: { registrationUrl: string }) => {
         </Heading>
         <Ui className="max-w-[326px] md:max-w-[523px] lg:max-w-[643px]">
           Build the next based experience at the Onchain Summer Buildathon and watch{' '}
-          <Link className="underline" href="https://jesse.xyz">
+          <Link className="underline" target="_blank" href="https://jesse.xyz">
             Jesse
           </Link>{' '}
           go bald ;)
@@ -32,7 +32,7 @@ const HomeSection = ({ registrationUrl }: { registrationUrl: string }) => {
         <Button href={registrationUrl} variant="primary" className="w-full">
           Register now
         </Button>
-        <Button href="#why" variant="outlined" className="w-full">
+        <Button href="#why" sameTab variant="outlined" className="w-full">
           Why would he go bald?
         </Button>
       </div>
