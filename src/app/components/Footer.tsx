@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="ui-text flex flex-col md:flex-row gap-6 footer w-full py-8 md:px-8 my-12">
       <div className="flex gap-2 items-center">
         Made with
-        <FaHeart className="text-red-500" />
+        <FaHeart className="text-red-500 animate-heartbeat" />
         at{' '}
         <Link href="https://devfolio.co" className="underline">
           Devfolio

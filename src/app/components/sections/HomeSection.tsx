@@ -1,8 +1,7 @@
-// Use the section 1 from page.tsx here
-
 import Image from 'next/image';
 import Ui from '../Ui';
 import Button from '../Button';
+import Heading from '../Heading';
 
 const HomeSection = ({ registrationUrl }: { registrationUrl: string }) => {
   return (
@@ -16,7 +15,7 @@ const HomeSection = ({ registrationUrl }: { registrationUrl: string }) => {
         unoptimized
       />
       <div className="max-width-[560px] text-center flex flex-col items-center">
-        <h1 className="text-[56px] md:text-[68px] hero-heading mb-[16px]">Let’s get Jesse bald!</h1>
+        <Heading className="mb-[16px]">Let’s get Jesse bald!</Heading>
         <Ui className="max-w-[326px] md:max-w-[523px] lg:max-w-[643px]">
           Build the next based experience at the Onchain Summer Buildathon and watch Jesse go bald ; )
         </Ui>

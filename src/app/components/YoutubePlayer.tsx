@@ -1,6 +1,24 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
+import { Variants, motion } from 'framer-motion';
+
+const variants: Variants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.9,
+    y: 20,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      duration: 1,
+      type: 'spring',
+    },
+  },
+};
 
 const YoutubePlayer = ({ url }: { url: string }) => {
   const [isMounted, setIsMounted] = useState(false);
@@ -25,32 +43,42 @@ const YoutubePlayer = ({ url }: { url: string }) => {
   }
 
   return (
-    <div
+    <motion.div
+      variants={variants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{
+        amount: 0,
+        // once: true,
+      }}
+      exit="hidden"
       ref={videoContainerRef}
-      className="video-container w-full transform-top-50-video mb-16  flex justify-center items-center" //p-[12px] md:p-[16px] lg:p-[32px]
+      className="w-full"
     >
-      <ReactPlayer
-        width="100%"
-        height="100%" //200px
-        controls={false}
-        config={{
-          youtube: {
-            embedOptions: {
-              controls: false,
+      <div className="video-container w-full transform-top-50-video mb-16  flex justify-center items-center">
+        <ReactPlayer
+          width="100%"
+          height="100%" //200px
+          controls={false}
+          config={{
+            youtube: {
+              embedOptions: {
+                controls: false,
+              },
             },
-          },
-        }}
-        style={{
-          outline: 'none',
-          border: 'none',
-          boxShadow: 'none',
-          borderRadius: '24px',
-          overflow: 'hidden',
-          aspectRatio: '16/9',
-        }}
-        url={url}
-      />
-    </div>
+          }}
+          style={{
+            outline: 'none',
+            border: 'none',
+            boxShadow: 'none',
+            borderRadius: '24px',
+            overflow: 'hidden',
+            aspectRatio: '16/9',
+          }}
+          url={url}
+        />
+      </div>
+    </motion.div>
   );
 };
 

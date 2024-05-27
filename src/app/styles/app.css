@@ -23,6 +23,10 @@
 
 /* Imports End */
 
+.bg-primary {
+  background-color: var(--primary);
+}
+
 .bg-grid {
   background-image: url('/grid.png');
 }
@@ -178,4 +182,35 @@
   height: 100%;
   width: 100%;
   position: absolute;
+}
+
+.animate-heartbeat {
+  animation: heartbeat 1s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(0.9);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.9);
+  }
+}
+
+.ios-peek {
+  position: fixed;
+  z-index: -1;
+  bottom: 0;
+  left: 0;
+  padding-top: 100px;
+  width: 100vw;
+  background: white;
+  color: #aeb4b7;
+  text-align: center;
+  font-size: 0.7rem;
 }
