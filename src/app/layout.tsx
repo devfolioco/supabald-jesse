@@ -15,6 +15,12 @@ export const metadata: Metadata = {
      'description': 'Build the next based experience at the Onchain Summer Buildathon and watch Jesse go bald ;)',
      images: '/og-image.png',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SupaBald Jesse | Onchain Summer Buildathon',
+    description: 'Build the next based experience at the Onchain Summer Buildathon and watch Jesse go bald ;)',
+    images: '/og-image.png'
+  },
   icons: {
     icon: '/favicon_io/favicon.gif',
     apple: '/favicon_io/apple-touch-icon.png',
@@ -32,26 +38,6 @@ export default function RootLayout({
         <link rel="icon" href="/favicon_io/favicon.gif" type="image/gif" />
         <link rel="icon" href="/favicon_io/favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="/favicon_io/favicon.ico" />
-
-        {/* OG */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="http://letsgetjessebald.com/" />
-        <meta property="og:title" content="SupaBald Jesse | Onchain Summer Buildathon" />
-        <meta
-          property="og:description"
-          content="Build the next based experience at the Onchain Summer Buildathon and watch Jesse go bald ;)"
-        />
-        <meta property="og:image" content="/og-image.png" />
-
-        {/* Twitter Card tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="http://letsgetjessebald.com/" />
-        <meta name="twitter:title" content="SupaBald Jesse | Onchain Summer Buildathon" />
-        <meta
-          name="twitter:description"
-          content="Build the next based experience at the Onchain Summer Buildathon and watch Jesse go bald ;)"
-        />
-        <meta name="twitter:image" content="/og-image.png" />
       </Head>
       <body>
         {children}
