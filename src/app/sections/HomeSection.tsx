@@ -17,8 +17,7 @@ const HomeSection = ({ registrationUrl }: { registrationUrl: string }) => {
       />
       <div className="max-width-[560px] lg:max-w-[643px] text-center flex flex-col items-center">
         <Heading className="mb-[16px]">
-          Let’s get
-          <br className="block md:none" />
+          Let’s get <br className="block md:hidden" />
           Jesse bald!
         </Heading>
         <Ui className="max-w-[326px] md:max-w-[523px] lg:max-w-[643px]">
