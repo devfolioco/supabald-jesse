@@ -12,7 +12,7 @@ const app = new Frog({
 
 app.frame('/', (c) => {
   return c.res({
-    title: 'SupaBald Jesse | Onchain Summer Buildathon',
+    title: 'SupaBald Jesse',
     image: `${APP_URL}/nft-fc.gif`,
     intents: [
       <Button.Link key={1} href={APP_URL}>Mint your NFT</Button.Link>,

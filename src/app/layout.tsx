@@ -11,13 +11,13 @@ export const metadata: Metadata = {
   openGraph: {
      'type': "website",
      'url': 'https://letsgetjessebald.com/',
-     'title': 'SupaBald Jesse | Onchain Summer Buildathon',
+     'title': 'SupaBald Jesse',
      'description': 'Build the next based experience at the Onchain Summer Buildathon and watch Jesse go bald ;)',
      images: '/og-image.png',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SupaBald Jesse | Onchain Summer Buildathon',
+    title: 'SupaBald Jesse',
     description: 'Build the next based experience at the Onchain Summer Buildathon and watch Jesse go bald ;)',
     images: '/og-image.png'
   },
@@ -38,6 +38,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon_io/favicon.gif" type="image/gif" />
         <link rel="icon" href="/favicon_io/favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="/favicon_io/favicon.ico" />
+        <title>SupaBald Jesse</title>
       </Head>
       <body>
         {children}
