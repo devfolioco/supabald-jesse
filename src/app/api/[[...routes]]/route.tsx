@@ -11,6 +11,8 @@ const app = new Frog({
 })
 
 
+console.log("ENV", APP_URL, process.env.VERCEL_URL)
+
 app.frame('/', (c) => {
   return c.res({
     title: 'SupaBald Jesse | Onchain Summer Buildathon',
