@@ -10,7 +10,6 @@ const app = new Frog({
   browserLocation: '/:path',
 })
 
-
 app.frame('/', (c) => {
   return c.res({
     title: 'SupaBald Jesse | Onchain Summer Buildathon',
@@ -22,25 +21,25 @@ app.frame('/', (c) => {
   })
 })
 
-app.frame('/test', (c) => {
-  const { buttonValue, status } = c
-  return c.res({
-    image: (
-      <div style={{ color: 'white', display: 'flex', fontSize: 60 }}>
-        {status === 'initial' ? (
-          'Select your fruit!'
-        ) : (
-          `Selected: ${buttonValue}`
-        )}
-      </div>
-    ),
-    intents: [
-      <Button key={1} value="apple">Apple</Button>,
-      <Button key={2} value="banana">Banana</Button>,
-      <Button key={3} value="mango">Mango</Button>
-    ]
-  })
-})
+// app.frame('/test', (c) => {
+//   const { buttonValue, status } = c
+//   return c.res({
+//     image: (
+//       <div style={{ color: 'white', display: 'flex', fontSize: 60 }}>
+//         {status === 'initial' ? (
+//           'Select your fruit!'
+//         ) : (
+//           `Selected: ${buttonValue}`
+//         )}
+//       </div>
+//     ),
+//     intents: [
+//       <Button key={1} value="apple">Apple</Button>,
+//       <Button key={2} value="banana">Banana</Button>,
+//       <Button key={3} value="mango">Mango</Button>
+//     ]
+//   })
+// })
 
 devtools(app, { serveStatic })
 
