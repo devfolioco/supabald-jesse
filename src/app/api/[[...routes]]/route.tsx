@@ -11,7 +11,7 @@ const app = new Frog({
 })
 
 
-console.log("ENV", APP_URL, process.env.VERCEL_URL)
+console.log("ENV 1", APP_URL, process.env.VERCEL_URL)
 
 app.frame('/', (c) => {
   return c.res({
