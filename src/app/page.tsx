@@ -13,7 +13,8 @@ import { YoutubePlayer } from './components/YoutubePlayer';
 import { APP_URL } from './utils/shared';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const frameMetadata = await getFrameMetadata(`${APP_URL}/api`);
+  const url = APP_URL
+  const frameMetadata = await getFrameMetadata(`${url}/api`)
 
   return {
     other: frameMetadata,
