@@ -5,7 +5,7 @@ const nextConfig = {
       {
         source: '/token/:tokenID',
         destination: '/',
-        permanent: true,
+        permanent: false,
       },
     ];
   },
