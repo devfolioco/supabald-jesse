@@ -19,10 +19,8 @@
 
 .hero-heading-700 {
   color: #f3f3f3;
-  font-family: 'Nyght Serif';
-  font-style: normal;
   font-weight: 700;
-  line-height: 110%;
+  line-height: 130%;
 }
 
 .ui-text {
@@ -63,7 +61,6 @@
 }
 
 .step-item .step-item-label {
-  border-radius: 16px;
   border: 3px solid #7d98a6;
   background: var(--primary);
 }
@@ -74,8 +71,6 @@
 
 .step-item .step-item-id {
   background: #7da3b6;
-  width: 98px;
-  height: 98px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -88,7 +83,6 @@
 }
 
 .video-container {
-  border-radius: 24px;
   background: #99b6c5;
   position: relative;
 }

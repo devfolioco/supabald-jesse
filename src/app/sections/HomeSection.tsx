@@ -16,7 +16,11 @@ const HomeSection = ({ registrationUrl }: { registrationUrl: string }) => {
         unoptimized
       />
       <div className="max-width-[560px] lg:max-w-[643px] text-center flex flex-col items-center">
-        <Heading className="mb-[16px]">Let’s get Jesse bald!</Heading>
+        <Heading className="mb-[16px]">
+          Let’s get
+          <br className="block md:none" />
+          Jesse bald!
+        </Heading>
         <Ui className="max-w-[326px] md:max-w-[523px] lg:max-w-[643px]">
           Build the next based experience at the Onchain Summer Buildathon and watch{' '}
           <Link className="underline" href="https://jesse.xyz">
@@ -25,7 +29,7 @@ const HomeSection = ({ registrationUrl }: { registrationUrl: string }) => {
           go bald ;)
         </Ui>
       </div>
-      <div className="w-full grid grid-cols-2 gap-[16px] md:gap-[24px] mt-8 ">
+      <div className="w-full grid grid-rows-2 md:grid-cols-2 gap-[16px] md:gap-[24px] mt-[68px] md:mt-8 ">
         <Button href={registrationUrl} variant="primary" className="w-full">
           Register now
         </Button>

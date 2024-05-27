@@ -51,7 +51,7 @@ const Video = () => {
 
   return (
     <div
-      className="video-container transform-top-50-video mb-16 p-[12px] md:p-[16px] lg:p-[32px] flex justify-center items-center"
+      className="video-container  md:rounded-[24px] transform-top-50-video mb-16 p-[12px] md:p-[16px] lg:p-[32px] flex justify-center items-center"
       ref={videoContainerRef}
     >
       <video ref={videoRef} controls={false} onClick={() => togglePlayPause()} onEnded={() => togglePlayPause()}>

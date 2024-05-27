@@ -1,6 +1,6 @@
 import { nyghtRegular } from '../fonts/fonts';
 
-const Heading = ({ children, className }: { children: string; className?: string }) => {
+const Heading = ({ children, className }: { children: React.ReactNode; className?: string }) => {
   return (
     <h1 className={`text-[56px] md:text-[68px] hero-heading ${nyghtRegular.className} ${className ?? ''}`}>
       {children}

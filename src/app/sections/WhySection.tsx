@@ -6,7 +6,7 @@ import Ui from '../components/Ui';
 
 const WhySection = ({ registrationUrl }: { registrationUrl: string }) => {
   return (
-    <AnimatedSection id="why" className="px-6 md:px-8 lg:px-52 mt-12 md:pt-36">
+    <AnimatedSection id="why" className="px-6 md:px-8 lg:px-52 mt-[162px] md:mt-12 md:pt-36">
       <div className="flex flex-col md:grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-4 md:gap-12">
         <Heading className="max-w-[390px]">Because that’s what he said...</Heading>
         <div className="flex flex-col gap-14">
