@@ -1,3 +1,5 @@
+'use client';
+import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import './globals.css';
 import Head from 'next/head';
@@ -48,6 +50,7 @@ export default function RootLayout({
       <body>
         {children}
         <ApplePeekArea />
+        <Analytics mode={'production'} />
       </body>
     </html>
   );
