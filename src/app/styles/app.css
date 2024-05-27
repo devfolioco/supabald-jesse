@@ -13,13 +13,13 @@
 .hero-heading {
   color: #f3f3f3;
   font-style: normal;
-  font-weight: bold;
+  font-weight: normal;
   line-height: 110%;
 }
 
 .hero-heading-700 {
   color: #f3f3f3;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 130%;
 }
 
