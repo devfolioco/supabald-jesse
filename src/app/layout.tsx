@@ -8,6 +8,13 @@ import { inter } from './fonts/fonts';
 export const metadata: Metadata = {
   title: 'Let’s get Jesse bald!',
   description: 'Participate in the buildathon. Get more assets on Base. Help us get Jesse bald.',
+  openGraph: {
+     'type': "website",
+     'url': 'https://letsgetjessebald.com/',
+     'title': 'SupaBald Jesse | Onchain Summer Buildathon',
+     'description': 'Build the next based experience at the Onchain Summer Buildathon and watch Jesse go bald ;)',
+     images: '/og-image.png',
+  },
   icons: {
     icon: '/favicon_io/favicon.gif',
     apple: '/favicon_io/apple-touch-icon.png',
