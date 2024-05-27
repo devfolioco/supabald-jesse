@@ -1,20 +1,27 @@
 import Link from 'next/link';
+import { FaHeart } from 'react-icons/fa6';
 
 const Footer = () => {
   return (
-    <div className="flex footer w-full p-8">
-      <div className="flex gap-8">
-        <Link href="/">&copy; 2024, NSB Classic PTE LTD</Link>
-        <Link href="/">Terms</Link>
-        <Link href="/">Privacy</Link>
+    <div className="ui-text flex flex-col md:flex-row gap-6 footer w-full py-8 md:px-8 my-12">
+      <div className="flex gap-2 items-center">
+        Made with
+        <FaHeart className="text-red-500" />
+        at{' '}
+        <Link href="https://devfolio.co" className="underline">
+          Devfolio
+        </Link>
       </div>
 
       <div className="flex-grow"></div>
 
       <div className="flex gap-8">
-        <Link href="/">About</Link>
-        <Link href="/">Contact Us</Link>
-        <Link href="/">Share Feedback</Link>
+        <Link href="https://x.com/devfolio" className="underline">
+          Twitter / X
+        </Link>
+        <Link href="http://warpcast.com/devfolio" className="underline">
+          Farcaster
+        </Link>
       </div>
     </div>
   );
