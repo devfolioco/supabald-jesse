@@ -13,11 +13,11 @@ const WhySection = ({ registrationUrl }: { registrationUrl: string }) => {
           <Ui className="md:max-w-[306px] lg:max-w-[561px]">
             <p>
               In a galaxy not so far away,{' '}
-              <Link className="underline" href="https://jesse.xyz">
+              <Link target="_blank" className="underline" href="https://jesse.xyz">
                 Jesse
               </Link>{' '}
               (creator,{' '}
-              <Link className="underline" href="https://base.org">
+              <Link target="_blank" className="underline" href="https://base.org">
                 Base
               </Link>
               ) committed to shaving his head off when Base hits 10 billion in TVL. Join this quest to hold him
