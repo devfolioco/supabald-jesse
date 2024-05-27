@@ -43,18 +43,7 @@ const YoutubePlayer = ({ url }: { url: string }) => {
   }
 
   return (
-    <motion.div
-      variants={variants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{
-        amount: 0,
-        // once: true,
-      }}
-      exit="hidden"
-      ref={videoContainerRef}
-      className="w-full"
-    >
+    <div ref={videoContainerRef} className="w-full">
       <div className="video-container w-full transform-top-50-video mb-16  flex justify-center items-center">
         <ReactPlayer
           width="100%"
@@ -78,7 +67,7 @@ const YoutubePlayer = ({ url }: { url: string }) => {
           url={url}
         />
       </div>
-    </motion.div>
+    </div>
   );
 };
 

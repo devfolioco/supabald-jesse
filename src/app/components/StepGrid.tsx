@@ -28,10 +28,30 @@ const StepGrid = () => {
       exit="hidden"
       className="grid lg:grid-rows-2 lg:grid-cols-2 lg:gap-[32px]"
     >
-      <StepItem step={1} label="onchain-summer.devfolio.co" image="/steps/1.png" />
-      <StepItem step={2} label="Stake 0.002 ETH" image="/steps/2.png" />
-      <StepItem step={3} label="Mint your NFT" image="/steps/3.png" />
-      <StepItem step={4} label="Build in the Onchain Summer! 🛠️" image="/steps/4.png" />
+      <StepItem
+        href="https://onchain-summer.devfolio.co"
+        step={1}
+        label="onchain-summer.devfolio.co"
+        image="/steps/1.png"
+      />
+      <StepItem
+        href="https://onchain-summer.devfolio.co?auto_apply=true"
+        step={2}
+        label="Stake 0.002 ETH"
+        image="/steps/2.png"
+      />
+      <StepItem
+        href="https://onchain-summer.devfolio.co?auto_apply=true"
+        step={3}
+        label="Mint your NFT"
+        image="/steps/3.png"
+      />
+      <StepItem
+        href="https://onchain-summer.devfolio.co?auto_apply=true"
+        step={4}
+        label="Build in the Onchain Summer! 🛠️"
+        image="/steps/4.png"
+      />
     </motion.div>
   );
 };

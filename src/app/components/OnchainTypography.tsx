@@ -1,7 +1,8 @@
 'use client';
 import Image from 'next/image';
 import useResponsive from '../hooks/useResponsive';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { Variants, motion, useScroll, useTransform } from 'framer-motion';
+import TypoImageD1 from '../../../public/onchain-d1.svg';
 
 const OnchainTypography = () => {
   const { isMobile, isTablet, isDesktop } = useResponsive();
@@ -10,17 +11,42 @@ const OnchainTypography = () => {
   const objectPositionMoveLeft = useTransform(scrollYProgress, value => `${-1 * value * 1000}px 100%`);
   const objectPositionMoveRight = useTransform(scrollYProgressInverted, value => `${-1 * value * 1000}px 100%`);
 
+  const variants: Variants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0,
+      },
+    },
+  };
+
   return (
-    <div className="w-screen overflow-hidden">
+    <motion.div
+      className="w-screen overflow-hidden"
+      variants={variants}
+      initial="hidden"
+      whileInView="visible"
+      exit="hidden"
+      viewport={{
+        amount: 0.3,
+        once: true,
+      }}
+    >
       {/* Desktop */}
       {isDesktop && (
         <>
           <motion.img
-            src="/onchain-d1.svg"
+            src="/onchain-d2.svg"
             alt="Onchain Summer"
             className="h-48 w-full object-cover"
             style={{ objectPosition: objectPositionMoveLeft }}
           />
+
+          {/* <Image src={TypoImageD1} alt="Onchain Summer" className="h-48 w-full object-cover"  priority/> */}
 
           <motion.img
             src="/onchain-d2.svg"
@@ -80,7 +106,7 @@ const OnchainTypography = () => {
           />
         </>
       )}
-    </div>
+    </motion.div>
   );
 };
 

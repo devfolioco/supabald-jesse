@@ -1,15 +1,8 @@
 import './styles/app.css';
-import Ui from './components/Ui';
-import OnchainTypography from './components/OnchainTypography';
-import Footer from './components/Footer';
 import { getFrameMetadata } from 'frog/next';
 import type { Metadata } from 'next';
 import HomeSection from './sections/HomeSection';
 import TypographySection from './sections/TypographySection';
-import Button from './components/Button';
-import { YoutubePlayer } from './components/YoutubePlayer';
-import Heading from './components/Heading';
-import StepGrid from './components/StepGrid';
 import WhySection from './sections/WhySection';
 import MintStepsGridSection from './sections/MintStepsGridSection';
 import VideoSection from './sections/VideoSection';
@@ -43,7 +36,7 @@ export default function Home({ searchParams }: { searchParams: { ref_code?: stri
       {/* We're not making this up. Hear it from Jesse himself! */}
       <VideoSection />
 
-      {/* Footer & Animated Typograhy */}
+      {/* Footer & Animated */}
       <FooterSection registrationUrl={registrationUrl} />
     </main>
   );

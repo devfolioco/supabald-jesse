@@ -1,12 +1,13 @@
+import AnimatedSection from '../components/AnimatedSection';
 import Button from '../components/Button';
 import Heading from '../components/Heading';
 import Ui from '../components/Ui';
 
 const WhySection = ({ registrationUrl }: { registrationUrl: string }) => {
   return (
-    <section id="why" className="px-6 md:px-8 lg:px-52 mt-24 md:pt-44">
+    <AnimatedSection id="why" className="px-6 md:px-8 lg:px-52 mt-24 md:pt-36">
       <div className="flex flex-col md:grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-4 md:gap-12">
-        <Heading className="max-w-[390px]">Because that&apos;s what he said...</Heading>
+        <Heading className="max-w-[390px]">Because that’s what he said...</Heading>
         <div className="flex flex-col gap-14">
           <Ui className="md:max-w-[306px] lg:max-w-[561px]">
             <p>
@@ -25,7 +26,7 @@ const WhySection = ({ registrationUrl }: { registrationUrl: string }) => {
           </Button>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 };
 
