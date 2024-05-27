@@ -14,6 +14,9 @@ const app = new Frog({
 console.log("ENV 1", APP_URL, process.env.VERCEL_URL)
 
 app.frame('/', (c) => {
+
+  console.log("ENV 3", APP_URL, process.env.VERCEL_URL)
+
   return c.res({
     title: 'SupaBald Jesse | Onchain Summer Buildathon',
     image: `${APP_URL}/nft-fc.gif`,

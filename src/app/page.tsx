@@ -24,7 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function Home({ searchParams }: { searchParams: { ref_code?: string } }) {
 
-  console.log("ENV", APP_URL, process.env.VERCEL_URL)
+  console.log("ENV 2", APP_URL, process.env.VERCEL_URL)
 
   // https://frog.fm/platforms/next#bonus-page--frame-co-location
   if (isFrameRequest(headers())) return null
