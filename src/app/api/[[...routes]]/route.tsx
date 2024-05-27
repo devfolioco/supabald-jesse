@@ -10,7 +10,6 @@ const app = new Frog({
   browserLocation: '/:path',
 })
 
-export const runtime = process.env.VERCEL_URL ? 'edge' : 'node'
 
 app.frame('/', (c) => {
   return c.res({
