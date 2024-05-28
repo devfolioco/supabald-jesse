@@ -6,7 +6,7 @@ const VideoSection = () => {
   return (
     <AnimatedSection className="w-full">
       <div className="px-6 md:px-8 lg:px-52 mt-40">
-        <Heading className="md:text-center max-w-[345px] md:max-w-[664px] lg:max-w-[950px] mb-[80px]">
+        <Heading className="md:text-center md:max-w-[664px] lg:max-w-[950px] mb-[80px] mx-auto">
           We&apos;re not making this up. Hear it from Jesse himself!
         </Heading>
         <div className="w-full half-video-height"></div>

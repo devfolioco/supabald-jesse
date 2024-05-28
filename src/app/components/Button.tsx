@@ -18,7 +18,7 @@ const Button = ({
     <Link
       href={href}
       target={sameTab ? undefined : '_blank'}
-      className={`h-[60px] md:h-[68px] button ${variant}-button text-[20px] md:text-[24px] w-full md:w-auto py-[20px] md:px-[32px] lg:px-[56px] ${nyghtBold.className} ${className}`}
+      className={`h-[60px] md:h-[68px] button ${variant}-button text-[20px] md:text-[24px] w-full md:w-auto py-[20px] md:px-[32px] ${nyghtBold.className} ${className}`}
     >
       {children}
     </Link>
