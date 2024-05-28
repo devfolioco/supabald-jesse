@@ -69,25 +69,6 @@ const ErrorResponse = (error: string): FrameResponse => {
 
 // FRAMES
 
-app.frame('', c => {
-  return c.res({
-    title: 'SupaBald Jesse',
-    // image: `/nft-fc.gif`,
-    image: `${APP_URL}/nft-fc.gif`,
-    intents: [
-      <Button.Link key={1} href={APP_URL}>
-        Mint your NFT
-      </Button.Link>,
-      <Button key={2} action={`/nominate/${v4()}`}>
-        Nominate a fren
-      </Button>,
-      <Button.Link key={3} href={OPENSEA_COLLECTION}>
-        View collection
-      </Button.Link>,
-    ],
-  });
-});
-
 app.frame('/', c => {
   return c.res({
     title: 'SupaBald Jesse',

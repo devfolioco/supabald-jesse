@@ -6,7 +6,7 @@ import ApplePeekArea from './components/ApplePeekArea';
 import { inter } from './fonts/fonts';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://letsgetjessebald.com/'),
+  metadataBase: new URL('https://letsgetjessebald.com'),
   title: 'Let’s get Jesse bald!',
   description: 'Participate in the buildathon. Get more assets on Base. Help us get Jesse bald.',
   openGraph: {
