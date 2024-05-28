@@ -23,6 +23,7 @@ const useIsMobile = () => {
     isMobile: width <= 733,
     isTablet: width >= 744 && width <= 1024,
     isDesktop: width > 1024,
+    is2K: width > 2648,
   };
 };
 

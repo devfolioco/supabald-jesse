@@ -4,7 +4,7 @@ import useResponsive from '../hooks/useResponsive';
 import { Variants, motion, useScroll, useTransform } from 'framer-motion';
 
 const OnchainTypography = () => {
-  const { isMobile, isTablet, isDesktop } = useResponsive();
+  const { isMobile, isTablet, isDesktop, is2K } = useResponsive();
   const { scrollYProgress } = useScroll();
   const scrollYProgressInverted = useTransform(scrollYProgress, [0, 1], [1, 0]);
   const objectPositionMoveLeft = useTransform(scrollYProgress, value => `${-1 * value * 1000}px 100%`);
@@ -28,8 +28,7 @@ const OnchainTypography = () => {
       className="w-screen overflow-hidden"
       variants={variants}
       initial="hidden"
-      whileInView={isDesktop ? 'visible' : undefined}
-      animate={!isDesktop ? 'visible' : undefined}
+      animate="visible"
       exit="hidden"
       viewport={{
         amount: 0,
@@ -39,19 +38,43 @@ const OnchainTypography = () => {
       {/* Desktop */}
       {isDesktop && (
         <>
-          <motion.img
-            src="/onchain-d1.svg"
-            alt="Onchain Summer"
-            className="h-48 w-full object-cover"
-            style={{ objectPosition: objectPositionMoveLeft }}
-          />
+          {/* Desktop 1080p */}
+          {!is2K && (
+            <>
+              <motion.img
+                src="/onchain-d1.svg"
+                alt="Onchain Summer"
+                className="h-48 w-full object-cover"
+                style={{ objectPosition: objectPositionMoveLeft }}
+              />
 
-          <motion.img
-            src="/onchain-d2.svg"
-            alt="Onchain Summer"
-            className="h-48 w-full object-cover"
-            style={{ objectPosition: objectPositionMoveRight }}
-          />
+              <motion.img
+                src="/onchain-d2.svg"
+                alt="Onchain Summer"
+                className="h-48 w-full object-cover"
+                style={{ objectPosition: objectPositionMoveRight }}
+              />
+            </>
+          )}
+
+          {/* Desktop 2k */}
+          {is2K && (
+            <>
+              <motion.img
+                src="/onchain-4k-1.svg"
+                alt="Onchain Summer"
+                className="h-48 w-full object-cover"
+                style={{ objectPosition: objectPositionMoveLeft }}
+              />
+
+              <motion.img
+                src="/onchain-4k-2.svg"
+                alt="Onchain Summer"
+                className="h-48 w-full object-cover"
+                style={{ objectPosition: objectPositionMoveRight }}
+              />
+            </>
+          )}
         </>
       )}
 
@@ -66,7 +89,6 @@ const OnchainTypography = () => {
           style={{ width: '100%', height: 'auto' }}
         />
       )}
-
       {/* Mobile */}
       {isMobile && (
         <>
