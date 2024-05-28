@@ -1,4 +1,4 @@
-export const APP_URL = `https://${process.env.VERCEL_URL}` || 'http://localhost:3003';
+export const APP_URL = `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` || 'http://localhost:3003';
 
 export const OPENSEA_COLLECTION = 'https://opensea.io/collection/supabald-jesse';
 
