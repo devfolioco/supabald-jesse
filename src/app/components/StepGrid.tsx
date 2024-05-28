@@ -26,7 +26,7 @@ const StepGrid = () => {
         once: true,
       }}
       exit="hidden"
-      className="grid lg:grid-rows-2 lg:grid-cols-2 lg:gap-[32px]"
+      className="grid lg:grid-rows-2 lg:grid-cols-2 lg:gap-[32px] max-w-[1350px]"
     >
       <StepItem
         href="https://onchain-summer.devfolio.co"

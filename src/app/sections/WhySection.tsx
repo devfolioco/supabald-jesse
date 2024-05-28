@@ -6,11 +6,11 @@ import Ui from '../components/Ui';
 
 const WhySection = ({ registrationUrl }: { registrationUrl: string }) => {
   return (
-    <AnimatedSection id="why" className="px-6 md:px-8 lg:px-52 mt-[162px] md:mt-12 md:pt-36">
-      <div className="flex flex-col md:grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-4 md:gap-12">
+    <AnimatedSection id="why" className="w-full px-6 md:px-8 lg:px-52 mt-[162px] md:mt-12 md:pt-36">
+      <div className="flex flex-col md:grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-4 md:gap-12 md:max-w-[664px] lg:max-w-[950px] 2k:max-w-[1350px] m-auto">
         <Heading className="max-w-[390px]">Because that’s what he said...</Heading>
         <div className="flex flex-col gap-14">
-          <Ui className="md:max-w-[306px] lg:max-w-[561px]">
+          <Ui className="md:max-w-[306px] lg:max-w-[561px] 2k:max-w-[1350px]">
             <p>
               In a galaxy not so far away,{' '}
               <Link target="_blank" className="underline" href="https://jesse.xyz">
