@@ -3,11 +3,15 @@ import { Button, Frog, TextInput } from 'frog'
 import { handle } from 'frog/next'
 import { devtools } from 'frog/dev'
 import { serveStatic } from 'frog/serve-static'
+
+import { Box, Heading, VStack, vars } from "../../frog"
+
 import { APP_URL, OPENSEA_COLLECTION } from '../../utils/shared'
 
 const app = new Frog({
   basePath: '/api',
   browserLocation: '/:path',
+  ui: { vars }
 })
 
 app.frame('/', (c) => {
@@ -16,7 +20,30 @@ app.frame('/', (c) => {
     image: `${APP_URL}/nft-fc.gif`,
     intents: [
       <Button.Link key={1} href={APP_URL}>Mint your NFT</Button.Link>,
-      <Button.Link key={2} href={OPENSEA_COLLECTION}>View Collection</Button.Link>,
+      <Button key={2} action={'/nominate'}>Nominate a fren</Button>,
+      <Button.Link key={3} href={OPENSEA_COLLECTION}>View Collection</Button.Link>,
+    ]
+  })
+})
+
+app.frame('/nominate', (c) => {
+  return c.res({
+    title: 'SupaBald Jesse | Nominate',
+    image: (
+      <Box
+        grow
+        alignVertical="center"
+        alignHorizontal='center'
+        backgroundColor="background"
+        padding="32"
+      >
+        <VStack gap="4">
+          <Heading>🛠️ WIP 🛠️</Heading>
+        </VStack>
+      </Box>
+    ),
+    intents: [
+      <Button.Reset key={1}>Back</Button.Reset>,
     ]
   })
 })
