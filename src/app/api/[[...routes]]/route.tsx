@@ -108,7 +108,7 @@ app.frame('/nominate', c => {
       <TextInput key={1} placeholder="Farcaster username or FID" />,
       <Button.Reset key={2}>Back</Button.Reset>,
       <Button key={3} action="/confirm">
-        Search
+        Send Cast
       </Button>,
     ],
   });
@@ -171,32 +171,72 @@ app.frame('/confirm', async c => {
     return c.res(ErrorResponse('Invalid State'));
   }
 
-  console.log("TEST TEST TEST", confirmState)
+  // console.log("TEST TEST TEST", confirmState)
+
+  // return c.res({
+  //   title: 'SupaBald Jesse | Preview Cast',
+  //   image: (
+  //     <Box
+  //       grow
+  //       alignVertical="center"
+  //       alignHorizontal="center"
+  //       backgroundColor="background"
+  //       padding="32"
+  //       position="relative"
+  //     >
+  //       <VStack gap="8">
+  //         <Heading size={'32'} weight="500" font={'nyght'}>
+  //           Preview Cast
+  //         </Heading>
+  //       </VStack>
+  //     </Box>
+  //   ),
+  //   intents: [
+  //     <Button key={1} action="/nominate">
+  //       Back
+  //     </Button>,
+  //     <Button key={2} action="/cast">
+  //       Cast!
+  //     </Button>,
+  //   ],
+  // });
+
+  const cast = `🔵 gm @${confirmState.searchUser.username}. @${confirmState.interactor.username} thinks you're a super based builder, and has nominated you for the Onchain Summer Buildathon.
+
+Hop in, mint your SupaBald Jesse NFT, and just build it. LFG
+
+https://letsgetjessebald.com/`;
+
+  // const cast = `🔵 gm @${confirmState.searchUser.username}. Someone thinks you're a super based builder, and has nominated you for the Onchain Summer Buildathon.
+
+  // Hop in, mint your SupaBald Jesse NFT, and just build it. LFG
+
+  // https://letsgetjessebald.com/`;
+
+  await neynarClient.publishCast(NEYNAR_SIGNER, cast, {
+    embeds: [{ url: 'https://letsgetjessebald.com/' }],
+  });
 
   return c.res({
-    title: 'SupaBald Jesse | Preview Cast',
+    title: 'SupaBald Jesse | Cast Sent',
     image: (
-      <Box
-        grow
-        alignVertical="center"
-        alignHorizontal="center"
-        backgroundColor="background"
-        padding="32"
-        position="relative"
-      >
-        <VStack gap="32">
-          <Heading size={'32'} weight="500" font={'nyght'}>
-            Preview Cast
+      <Box grow alignVertical="center" backgroundColor="background" padding="32" position="relative">
+        <VStack gap="16">
+          {/* <Heading>🛠️ Cast from {state.confirm?.devfolio.username} on behalf of {state.confirm?.interactor.username} to {state.confirm?.searchUser?.username} 🛠️</Heading> */}
+          <Heading size={'48'} weight="500" font={'nyght'}>
+            Cast sent!
           </Heading>
+
+          <Text color="text" weight="300" size="24">
+            You’re based.
+          </Text>
         </VStack>
       </Box>
     ),
     intents: [
-      <Button key={1} action="/nominate">
-        Back
-      </Button>,
-      <Button key={2} action="/cast">
-        Cast!
+      <Button.Reset key={1}>👍</Button.Reset>,
+      <Button key={2} action="/nominate">
+        Nominate another fren
       </Button>,
     ],
   });
