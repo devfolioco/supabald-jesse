@@ -10,6 +10,7 @@ html {
 body {
   color: var(--text-color);
   background: var(--primary);
+  overflow-x: hidden;
 }
 
 * {
