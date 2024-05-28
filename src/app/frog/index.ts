@@ -4,10 +4,21 @@ import { fileURLToPath } from 'url';
 
 import { createSystem, defaultVars } from 'frog/ui';
 
-const nyghtSerifMedium = fs.readFileSync(
-  path.join(fileURLToPath(import.meta.url), '../../fonts/NyghtSerif-Medium.ttf')
-);
-const nyghtSerifBold = fs.readFileSync(path.join(fileURLToPath(import.meta.url), '../../fonts/NyghtSerif-Bold.ttf'));
+// const nyghtSerifMedium = fs.readFileSync(
+//   path.join(fileURLToPath(import.meta.url), '../../fonts/NyghtSerif-Medium.ttf')
+// );
+// const nyghtSerifBold = fs.readFileSync(path.join(fileURLToPath(import.meta.url), '../../fonts/NyghtSerif-Bold.ttf'));
+
+// https://assets-devrel.s3.ap-south-1.amazonaws.com/OCS/NyghtSerif-Bold.ttf
+// https://assets-devrel.s3.ap-south-1.amazonaws.com/OCS/NyghtSerif-Medium.ttf
+
+const nyghtSerifMedium = await fetch("https://assets-devrel.s3.ap-south-1.amazonaws.com/OCS/NyghtSerif-Medium.ttf").then(
+  (res) => res.arrayBuffer()
+)
+
+const nyghtSerifBold = await fetch("https://assets-devrel.s3.ap-south-1.amazonaws.com/OCS/NyghtSerif-Bold.ttf").then(
+  (res) => res.arrayBuffer()
+)
 
 export const { Box, Columns, Column, Divider, Heading, HStack, Icon, Image, Rows, Row, Spacer, Text, VStack, vars } =
   createSystem({
