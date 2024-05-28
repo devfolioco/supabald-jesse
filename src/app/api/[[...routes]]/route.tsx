@@ -20,7 +20,7 @@ const neynarClient = new NeynarAPIClient(NEYNAR_API_KEY);
 
 type State = {
   confirm: {
-    // interactor: NeynarMiddlewareUser;
+    interactor: NeynarMiddlewareUser;
     devfolio: NeynarUserV1;
     searchUser: NeynarUserV2;
   } | null;
@@ -31,13 +31,16 @@ const app = new Frog<{ State: State }>({
   browserLocation: '/:path',
   ui: { vars },
   initialState: {},
+  headers: {
+    'cache-control': 'max-age=0',
+  }
 })
-// .use(
-//   neynarMiddleware({
-//     apiKey: NEYNAR_API_KEY,
-//     features: ['interactor'],
-//   })
-// );
+  .use(
+    neynarMiddleware({
+      apiKey: NEYNAR_API_KEY,
+      features: ['interactor'],
+    })
+  );
 
 // COMPONENTS START
 
@@ -105,18 +108,18 @@ app.frame('/nominate', c => {
       <TextInput key={1} placeholder="Farcaster username or FID" />,
       <Button.Reset key={2}>Back</Button.Reset>,
       <Button key={3} action="/confirm">
-        Search
+        Send Cast
       </Button>,
     ],
   });
 });
 
 app.frame('/confirm', async c => {
-  // const interactor = c.var.interactor;
-  // if (!interactor) {
-  //   // @todo Update Error Message
-  //   return c.res(ErrorResponse('Invalid Interactor'));
-  // }
+  const interactor = c.var.interactor;
+  if (!interactor) {
+    // @todo Update Error Message
+    return c.res(ErrorResponse('Invalid Interactor'));
+  }
 
   const devfolioLookupResponse = await neynarClient.lookupUserByUsername('devfolio').catch(() => false);
   if (typeof devfolioLookupResponse === 'boolean') {
@@ -157,7 +160,7 @@ app.frame('/confirm', async c => {
   const state = c.deriveState(previousState => {
     previousState.confirm = {
       devfolio: devfolio,
-      // interactor,
+      interactor,
       searchUser,
     };
   });
@@ -168,33 +171,72 @@ app.frame('/confirm', async c => {
     return c.res(ErrorResponse('Invalid State'));
   }
 
-  console.log("TEST TEST TEST", confirmState)
+  // console.log("TEST TEST TEST", confirmState)
+
+  // return c.res({
+  //   title: 'SupaBald Jesse | Preview Cast',
+  //   image: (
+  //     <Box
+  //       grow
+  //       alignVertical="center"
+  //       alignHorizontal="center"
+  //       backgroundColor="background"
+  //       padding="32"
+  //       position="relative"
+  //     >
+  //       <VStack gap="8">
+  //         <Heading size={'32'} weight="500" font={'nyght'}>
+  //           Preview Cast
+  //         </Heading>
+  //       </VStack>
+  //     </Box>
+  //   ),
+  //   intents: [
+  //     <Button key={1} action="/nominate">
+  //       Back
+  //     </Button>,
+  //     <Button key={2} action="/cast">
+  //       Cast!
+  //     </Button>,
+  //   ],
+  // });
+
+  const cast = `🔵 gm @${confirmState.searchUser.username}. @${confirmState.interactor.username} thinks you're a super based builder, and has nominated you for the Onchain Summer Buildathon.
+
+Hop in, mint your SupaBald Jesse NFT, and just build it. LFG
+
+https://letsgetjessebald.com/`;
+
+  // const cast = `🔵 gm @${confirmState.searchUser.username}. Someone thinks you're a super based builder, and has nominated you for the Onchain Summer Buildathon.
+
+  // Hop in, mint your SupaBald Jesse NFT, and just build it. LFG
+
+  // https://letsgetjessebald.com/`;
+
+  await neynarClient.publishCast(NEYNAR_SIGNER, cast, {
+    embeds: [{ url: 'https://letsgetjessebald.com/' }],
+  });
 
   return c.res({
-    title: 'SupaBald Jesse | Preview Cast',
+    title: 'SupaBald Jesse | Cast Sent',
     image: (
-      <Box
-        grow
-        alignVertical="center"
-        alignHorizontal="center"
-        backgroundColor="background"
-        padding="32"
-        position="relative"
-      >
-        <VStack gap="32">
+      <Box grow alignVertical="center" backgroundColor="background" padding="32" position="relative">
+        <VStack gap="16">
           {/* <Heading>🛠️ Cast from {state.confirm?.devfolio.username} on behalf of {state.confirm?.interactor.username} to {state.confirm?.searchUser?.username} 🛠️</Heading> */}
-          <Heading size={'32'} weight="500" font={'nyght'}>
-            Preview Cast
+          <Heading size={'48'} weight="500" font={'nyght'}>
+            Cast sent!
           </Heading>
+
+          <Text color="text" weight="300" size="24">
+            You’re based.
+          </Text>
         </VStack>
       </Box>
     ),
     intents: [
-      <Button key={1} action="/nominate">
-        Back
-      </Button>,
-      <Button key={2} action="/cast">
-        Cast!
+      <Button.Reset key={1}>👍</Button.Reset>,
+      <Button key={2} action="/nominate">
+        Nominate another fren
       </Button>,
     ],
   });
@@ -208,17 +250,17 @@ app.frame('/cast', c => {
     return c.res(ErrorResponse('Invalid State'));
   }
 
-//   const cast = `🔵 gm @${confirmState.searchUser.username}. @${confirmState.interactor.username} thinks you're a super based builder, and has nominated you for the Onchain Summer Buildathon.
-
-// Hop in, mint your SupaBald Jesse NFT, and just build it. LFG
-
-// https://letsgetjessebald.com/`;
-
-const cast = `🔵 gm @${confirmState.searchUser.username}. Someone thinks you're a super based builder, and has nominated you for the Onchain Summer Buildathon.
+  const cast = `🔵 gm @${confirmState.searchUser.username}. @${confirmState.interactor.username} thinks you're a super based builder, and has nominated you for the Onchain Summer Buildathon.
 
 Hop in, mint your SupaBald Jesse NFT, and just build it. LFG
 
 https://letsgetjessebald.com/`;
+
+  // const cast = `🔵 gm @${confirmState.searchUser.username}. Someone thinks you're a super based builder, and has nominated you for the Onchain Summer Buildathon.
+
+  // Hop in, mint your SupaBald Jesse NFT, and just build it. LFG
+
+  // https://letsgetjessebald.com/`;
 
   neynarClient.publishCast(NEYNAR_SIGNER, cast, {
     embeds: [{ url: 'https://letsgetjessebald.com/' }],
