@@ -91,10 +91,10 @@ app.frame('/nominate', (c) => {
         backgroundColor="background"
         padding="32"
       >
-        <VStack gap="8">
-          <Heading>Nominate a fren</Heading>
-          <Text color="text200" size="20">
-            Search by username or FID, and invite them to participate in the Onchain Summer Buildathon and mint their SupaBald Jesse NFT.
+        <VStack gap="4">
+          <Heading size={'32'} weight='500' font={'nyght'}>Nominate a fren</Heading>
+          <Text color="text" weight="300" size="20">
+            Frens don’t let frens miss out on opportunities. Ask a fren to join you at the Onchain Summer Buildathon.
           </Text>
         </VStack>
       </Box>

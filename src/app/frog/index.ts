@@ -1,4 +1,11 @@
-import { createSystem } from 'frog/ui'
+import fs from "fs"
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+import { createSystem, defaultVars } from 'frog/ui'
+
+const nyghtSerifMedium = fs.readFileSync(path.join(fileURLToPath(import.meta.url), '../../fonts/NyghtSerif-Medium.ttf'))
+const nyghtSerifBold = fs.readFileSync(path.join(fileURLToPath(import.meta.url), '../../fonts/NyghtSerif-Bold.ttf'))
 
 export const {
   Box,
@@ -15,4 +22,38 @@ export const {
   Text,
   VStack,
   vars,
-} = createSystem()
+} = createSystem({
+  colors: {
+    ...defaultVars.colors,
+    text: '#F3F3F3',
+    background: '#638596',
+  },
+  fonts: {
+    default: [
+      {
+        name: 'Inter',
+        source: 'google',
+        weight: 300,
+      },
+      {
+        name: 'Inter',
+        source: 'google',
+        weight: 600,
+      },
+    ],
+    nyght: [
+      {
+        name: 'NyghtSerif-Medium',
+        data: nyghtSerifMedium,
+        source: 'buffer',
+        weight: 400
+      },
+      {
+        name: 'NyghtSerif-Bold',
+        data: nyghtSerifBold,
+        source: 'buffer',
+        weight: 700
+      }
+    ]
+  }
+})
