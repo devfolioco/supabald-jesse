@@ -20,7 +20,7 @@ const neynarClient = new NeynarAPIClient(NEYNAR_API_KEY);
 
 type State = {
   confirm: {
-    interactor: NeynarMiddlewareUser;
+    // interactor: NeynarMiddlewareUser;
     devfolio: NeynarUserV1;
     searchUser: NeynarUserV2;
   } | null;
@@ -31,12 +31,13 @@ const app = new Frog<{ State: State }>({
   browserLocation: '/:path',
   ui: { vars },
   initialState: {},
-}).use(
-  neynarMiddleware({
-    apiKey: NEYNAR_API_KEY,
-    features: ['interactor'],
-  })
-);
+})
+// .use(
+//   neynarMiddleware({
+//     apiKey: NEYNAR_API_KEY,
+//     features: ['interactor'],
+//   })
+// );
 
 // COMPONENTS START
 
@@ -111,11 +112,11 @@ app.frame('/nominate', c => {
 });
 
 app.frame('/confirm', async c => {
-  const interactor = c.var.interactor;
-  if (!interactor) {
-    // @todo Update Error Message
-    return c.res(ErrorResponse('Invalid Interactor'));
-  }
+  // const interactor = c.var.interactor;
+  // if (!interactor) {
+  //   // @todo Update Error Message
+  //   return c.res(ErrorResponse('Invalid Interactor'));
+  // }
 
   const devfolioLookupResponse = await neynarClient.lookupUserByUsername('devfolio').catch(() => false);
   if (typeof devfolioLookupResponse === 'boolean') {
@@ -156,7 +157,7 @@ app.frame('/confirm', async c => {
   const state = c.deriveState(previousState => {
     previousState.confirm = {
       devfolio: devfolio,
-      interactor,
+      // interactor,
       searchUser,
     };
   });
@@ -216,8 +217,12 @@ app.frame('/confirm', async c => {
                   </Text>
                   <Text>hu</Text>
                 </HStack> */}
-                <Text color="text" weight="300" size="14">
+                {/* <Text color="text" weight="300" size="14">
                   🔵 gm @{confirmState.searchUser.username}. @{confirmState.interactor.username} thinks {"you're"} a
+                  super based builder, and has nominated you for the Onchain Summer Buildathon.
+                </Text> */}
+                <Text color="text" weight="300" size="14">
+                  🔵 gm @{confirmState.searchUser.username}. Someone thinks {"you're"} a
                   super based builder, and has nominated you for the Onchain Summer Buildathon.
                 </Text>
                 <Text color="text" weight="300" size="14">
@@ -248,7 +253,13 @@ app.frame('/cast', c => {
     return c.res(ErrorResponse('Invalid State'));
   }
 
-  const cast = `🔵 gm @${confirmState.searchUser.username}. @${confirmState.interactor.username} thinks you're a super based builder, and has nominated you for the Onchain Summer Buildathon.
+//   const cast = `🔵 gm @${confirmState.searchUser.username}. @${confirmState.interactor.username} thinks you're a super based builder, and has nominated you for the Onchain Summer Buildathon.
+
+// Hop in, mint your SupaBald Jesse NFT, and just build it. LFG
+
+// https://letsgetjessebald.com/`;
+
+const cast = `🔵 gm @${confirmState.searchUser.username}. Someone thinks you're a super based builder, and has nominated you for the Onchain Summer Buildathon.
 
 Hop in, mint your SupaBald Jesse NFT, and just build it. LFG
 
