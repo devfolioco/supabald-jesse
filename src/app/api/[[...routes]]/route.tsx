@@ -168,6 +168,8 @@ app.frame('/confirm', async c => {
     return c.res(ErrorResponse('Invalid State'));
   }
 
+  console.log("TEST TEST TEST", confirmState)
+
   return c.res({
     title: 'SupaBald Jesse | Preview Cast',
     image: (
