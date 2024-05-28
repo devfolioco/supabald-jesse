@@ -9,17 +9,17 @@ export const metadata: Metadata = {
   title: 'Let’s get Jesse bald!',
   description: 'Participate in the buildathon. Get more assets on Base. Help us get Jesse bald.',
   openGraph: {
-     'type': "website",
-     'url': 'https://letsgetjessebald.com/',
-     'title': 'SupaBald Jesse',
-     'description': 'Build the next based experience at the Onchain Summer Buildathon and watch Jesse go bald ;)',
-     images: '/og-image.png',
+    type: 'website',
+    url: 'https://letsgetjessebald.com/',
+    title: 'SupaBald Jesse',
+    description: 'Build the next based experience at the Onchain Summer Buildathon and watch Jesse go bald ;)',
+    images: '/og-image.png',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'SupaBald Jesse',
     description: 'Build the next based experience at the Onchain Summer Buildathon and watch Jesse go bald ;)',
-    images: '/og-image.png'
+    images: '/og-image.png',
   },
   icons: {
     icon: '/favicon_io/favicon.gif',

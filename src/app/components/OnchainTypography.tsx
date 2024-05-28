@@ -2,7 +2,6 @@
 import Image from 'next/image';
 import useResponsive from '../hooks/useResponsive';
 import { Variants, motion, useScroll, useTransform } from 'framer-motion';
-import TypoImageD1 from '../../../public/onchain-d1.svg';
 
 const OnchainTypography = () => {
   const { isMobile, isTablet, isDesktop } = useResponsive();
@@ -45,8 +44,6 @@ const OnchainTypography = () => {
             className="h-48 w-full object-cover"
             style={{ objectPosition: objectPositionMoveLeft }}
           />
-
-          {/* <Image src={TypoImageD1} alt="Onchain Summer" className="h-48 w-full object-cover"  priority/> */}
 
           <motion.img
             src="/onchain-d2.svg"
