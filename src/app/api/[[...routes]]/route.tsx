@@ -189,11 +189,12 @@ app.frame('/confirm', async c => {
           <Heading size={'32'} weight="500" font={'nyght'}>
             Preview Cast
           </Heading>
-          <Text>🔵 gm @{confirmState.searchUser.username}. @{confirmState.interactor.username} thinks {"you're"} a super based builder, and has nominated you for the Onchain Summer Buildathon.
+          <Text>🔵 gm @{searchUser.username}. @{interactor.username} thinks {"you're"} a super based builder, and has nominated you for the Onchain Summer Buildathon.
 
             Hop in, mint your SupaBald Jesse NFT, and just build it. LFG
 
-            https://letsgetjessebald.com/`;</Text>
+            https://letsgetjessebald.com/`;
+          </Text>
         </VStack>
       </Box>
     ),
@@ -228,9 +229,9 @@ https://letsgetjessebald.com/`;
 
   // https://letsgetjessebald.com/`;
 
-    neynarClient.publishCast(NEYNAR_SIGNER, cast, {
-      embeds: [{ url: 'https://letsgetjessebald.com/' }],
-    });
+  neynarClient.publishCast(NEYNAR_SIGNER, cast, {
+    embeds: [{ url: 'https://letsgetjessebald.com/' }],
+  });
 
   return c.res({
     title: 'SupaBald Jesse | Cast Sent',
