@@ -1,74 +1,289 @@
 /** @jsxImportSource frog/jsx */
-import { Button, Frog, TextInput } from 'frog'
-import { handle } from 'frog/next'
-import { devtools } from 'frog/dev'
-import { serveStatic } from 'frog/serve-static'
+import { Button, FrameResponse, Frog, TextInput } from 'frog';
+import { handle } from 'frog/next';
+import { neynar as neynarMiddleware, NeynarUser as NeynarMiddlewareUser } from 'frog/middlewares';
+import { devtools } from 'frog/dev';
+import { serveStatic } from 'frog/serve-static';
 
-import { Box, Heading, VStack, vars } from "../../frog"
+import { NeynarAPIClient } from '@neynar/nodejs-sdk';
+import type { User as NeynarUserV1 } from '@neynar/nodejs-sdk/build/neynar-api/v1';
+import type { User as NeynarUserV2 } from '@neynar/nodejs-sdk/build/neynar-api/v2';
 
-import { APP_URL, OPENSEA_COLLECTION } from '../../utils/shared'
+import { Box, HStack, Heading, Image, Spacer, Text, VStack, vars } from '../../frog';
 
-const app = new Frog({
+import { APP_URL, OPENSEA_COLLECTION, isNumeric } from '../../utils/shared';
+
+const NEYNAR_API_KEY = process.env.NEYNAR_API_KEY ?? '';
+const NEYNAR_SIGNER = process.env.NEYNAR_SIGNER ?? '';
+
+const neynarClient = new NeynarAPIClient(NEYNAR_API_KEY);
+
+type State = {
+  confirm: {
+    interactor: NeynarMiddlewareUser;
+    devfolio: NeynarUserV1;
+    searchUser: NeynarUserV2;
+  } | null;
+};
+
+const app = new Frog<{ State: State }>({
   basePath: '/api',
   browserLocation: '/:path',
-  ui: { vars }
-})
+  ui: { vars },
+  initialState: {},
+}).use(
+  neynarMiddleware({
+    apiKey: NEYNAR_API_KEY,
+    features: ['interactor'],
+  })
+);
 
-app.frame('/', (c) => {
+// COMPONENTS START
+
+const ErrorResponse = (error: string): FrameResponse => {
+  return {
+    title: 'Error',
+    image: (
+      <Box grow alignVertical="center" backgroundColor="background" padding="32" position="relative">
+        <VStack gap="16">
+          <Heading size={'48'} weight="500" font={'nyght'}>
+            Error occured :/
+          </Heading>
+
+          <Text color="text" weight="300" size="24">
+            {error}
+          </Text>
+        </VStack>
+      </Box>
+    ),
+    intents: [<Button.Reset key={1}>Try again</Button.Reset>],
+  };
+};
+
+// COMPONENTS END
+
+// FRAMES
+
+app.frame('/', c => {
   return c.res({
     title: 'SupaBald Jesse',
+    // image: `/nft-fc.gif`,
     image: `${APP_URL}/nft-fc.gif`,
     intents: [
-      <Button.Link key={1} href={APP_URL}>Mint your NFT</Button.Link>,
-      <Button key={2} action={'/nominate'}>Nominate a fren</Button>,
-      <Button.Link key={3} href={OPENSEA_COLLECTION}>View Collection</Button.Link>,
-    ]
-  })
-})
+      <Button.Link key={1} href={APP_URL}>
+        Mint your NFT
+      </Button.Link>,
+      <Button key={2} action={'/nominate'}>
+        Nominate a fren
+      </Button>,
+      <Button.Link key={3} href={OPENSEA_COLLECTION}>
+        View collection
+      </Button.Link>,
+    ],
+  });
+});
 
-app.frame('/nominate', (c) => {
+app.frame('/nominate', c => {
   return c.res({
     title: 'SupaBald Jesse | Nominate',
     image: (
-      <Box
-        grow
-        alignVertical="center"
-        alignHorizontal='center'
-        backgroundColor="background"
-        padding="32"
-      >
-        <VStack gap="4">
-          <Heading>🛠️ WIP 🛠️</Heading>
+      <Box grow alignVertical="center" backgroundColor="background" padding="32" position="relative">
+        <VStack gap="16">
+          {/* <Heading>🛠️ Cast from {state.confirm?.devfolio.username} on behalf of {state.confirm?.interactor.username} to {state.confirm?.searchUser?.username} 🛠️</Heading> */}
+          <Heading size={'48'} weight="500" font={'nyght'}>
+            Nominate a fren
+          </Heading>
+
+          <Text color="text" weight="300" size="24">
+            Frens don’t let frens miss out on opportunities. Ask a fren to join you at the Onchain Summer Buildathon.
+          </Text>
         </VStack>
       </Box>
     ),
     intents: [
-      <Button.Reset key={1}>Back</Button.Reset>,
-    ]
-  })
-})
+      <TextInput key={1} placeholder="Farcaster username or FID" />,
+      <Button.Reset key={2}>Back</Button.Reset>,
+      <Button key={3} action="/confirm">
+        Search
+      </Button>,
+    ],
+  });
+});
 
-// app.frame('/test', (c) => {
-//   const { buttonValue, status } = c
-//   return c.res({
-//     image: (
-//       <div style={{ color: 'white', display: 'flex', fontSize: 60 }}>
-//         {status === 'initial' ? (
-//           'Select your fruit!'
-//         ) : (
-//           `Selected: ${buttonValue}`
-//         )}
-//       </div>
-//     ),
-//     intents: [
-//       <Button key={1} value="apple">Apple</Button>,
-//       <Button key={2} value="banana">Banana</Button>,
-//       <Button key={3} value="mango">Mango</Button>
-//     ]
-//   })
-// })
+app.frame('/confirm', async c => {
+  const interactor = c.var.interactor;
+  if (!interactor) {
+    // @todo Update Error Message
+    return c.res(ErrorResponse('Invalid Interactor'));
+  }
 
-devtools(app, { serveStatic })
+  const devfolioLookupResponse = await neynarClient.lookupUserByUsername('devfolio').catch(() => false);
+  if (typeof devfolioLookupResponse === 'boolean') {
+    return c.res(ErrorResponse('Invalid Devfolio'));
+  }
+  const devfolio = devfolioLookupResponse.result.user;
 
-export const GET = handle(app)
-export const POST = handle(app)
+  let searchUser: NeynarUserV2 | undefined;
+
+  if (!c.inputText) {
+    // @todo Update Error Message
+    return c.res(ErrorResponse('Empty Input'));
+  }
+
+  const isSearchInputNumber = isNumeric(c.inputText);
+
+  if (isSearchInputNumber) {
+    const searchUserByFIDResult = await neynarClient.fetchBulkUsers([Number(c.inputText)]).catch(() => false);
+
+    if (typeof searchUserByFIDResult != 'boolean' && searchUserByFIDResult.users.length > 0) {
+      searchUser = searchUserByFIDResult.users?.[0];
+    }
+  } else {
+    const searchUserByUsernameResult = await neynarClient.searchUser(c.inputText).catch(() => false);
+
+    if (typeof searchUserByUsernameResult != 'boolean' && searchUserByUsernameResult?.result?.users?.length > 0) {
+      searchUser = searchUserByUsernameResult?.result?.users?.[0];
+    }
+  }
+
+  if (!searchUser) {
+    return c.res(
+      ErrorResponse(`We could not find @${c.inputText} on Farcaster. Please double check the username and try again.`)
+    );
+  }
+
+  // Set the state
+  const state = c.deriveState(previousState => {
+    previousState.confirm = {
+      devfolio: devfolio,
+      interactor,
+      searchUser,
+    };
+  });
+
+  const confirmState = state.confirm;
+
+  if (!confirmState) {
+    return c.res(ErrorResponse('Invalid State'));
+  }
+
+  return c.res({
+    title: 'SupaBald Jesse | Preview Cast',
+    image: (
+      <Box
+        grow
+        alignVertical="center"
+        alignHorizontal="center"
+        backgroundColor="background"
+        padding="32"
+        position="relative"
+      >
+        <VStack gap="32">
+          {/* <Heading>🛠️ Cast from {state.confirm?.devfolio.username} on behalf of {state.confirm?.interactor.username} to {state.confirm?.searchUser?.username} 🛠️</Heading> */}
+          <Heading size={'32'} weight="500" font={'nyght'}>
+            Preview Cast
+          </Heading>
+
+          {/* {confirmState.devfolio.username} */}
+          {/* <Spacer size="8" /> */}
+          <Box
+            backgroundColor="castBackground"
+            color="castColor"
+            padding="20"
+            borderRadius="8"
+            // borderTopLeftRadius="8"
+            // borderTopRightRadius="8"
+          >
+            {/* <Box>
+              <Image src="http://localhost:3000/devfolio.png" />
+            </Box> */}
+
+            <VStack gap="16">
+              {/* eslint-disable-next-line jsx-a11y/alt-text */}
+              <HStack gap="8">
+                <Text weight="700">Devfolio</Text>
+                {/* color grey not working */}
+                <Text weight="300">@devfolio</Text>
+              </HStack>
+              <VStack gap="20">
+                {/* Not Working */}
+                {/* <HStack>
+                  <Text color="text" weight="300" size="14">
+                    🔵 gm
+                  </Text>
+                  <Text color="text" weight="300" size="14">
+                    @{confirmState.searchUser.username}. @{confirmState.interactor.username}
+                  </Text>
+                  <Text>hu</Text>
+                </HStack> */}
+                <Text color="text" weight="300" size="14">
+                  🔵 gm @{confirmState.searchUser.username}. @{confirmState.interactor.username} thinks {"you're"} a
+                  super based builder, and has nominated you for the Onchain Summer Buildathon.
+                </Text>
+                <Text color="text" weight="300" size="14">
+                  Participate, mint your SupaBald Jesse NFT, and just build it. LFG 🛠️
+                </Text>
+              </VStack>
+            </VStack>
+          </Box>
+        </VStack>
+      </Box>
+    ),
+    intents: [
+      <Button key={1} action="/nominate">
+        Back
+      </Button>,
+      <Button key={2} action="/cast">
+        Cast!
+      </Button>,
+    ],
+  });
+});
+
+app.frame('/cast', c => {
+  const state = c.previousState;
+  const confirmState = state.confirm;
+
+  if (!confirmState) {
+    return c.res(ErrorResponse('Invalid State'));
+  }
+
+  const cast = `🔵 gm @${confirmState.searchUser.username}. @${confirmState.interactor.username} thinks you're a super based builder, and has nominated you for the Onchain Summer Buildathon.
+
+Hop in, mint your SupaBald Jesse NFT, and just build it. LFG
+
+https://letsgetjessebald.com/`;
+
+  neynarClient.publishCast(NEYNAR_SIGNER, cast, {
+    embeds: [{ url: 'https://letsgetjessebald.com/' }],
+  });
+
+  return c.res({
+    title: 'SupaBald Jesse | Cast Sent',
+    image: (
+      <Box grow alignVertical="center" backgroundColor="background" padding="32" position="relative">
+        <VStack gap="16">
+          {/* <Heading>🛠️ Cast from {state.confirm?.devfolio.username} on behalf of {state.confirm?.interactor.username} to {state.confirm?.searchUser?.username} 🛠️</Heading> */}
+          <Heading size={'48'} weight="500" font={'nyght'}>
+            Cast sent!
+          </Heading>
+
+          <Text color="text" weight="300" size="24">
+            You’re based.
+          </Text>
+        </VStack>
+      </Box>
+    ),
+    intents: [
+      <Button.Reset key={1}>👍</Button.Reset>,
+      <Button key={2} action="/nominate">
+        Nominate another fren
+      </Button>,
+    ],
+  });
+});
+
+devtools(app, { serveStatic });
+
+export const GET = handle(app);
+export const POST = handle(app);
