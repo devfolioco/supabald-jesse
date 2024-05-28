@@ -20,7 +20,7 @@ const WhySection = ({ registrationUrl }: { registrationUrl: string }) => {
               <Link target="_blank" className="underline" href="https://base.org">
                 Base
               </Link>
-              ) committed to shaving his head off when Base hits 10 billion in TVL. Join this quest to hold him
+              ) committed to shaving his head bald when Base hits 10 billion in TVL. Join this quest to hold him
               accountable and claim a SupaBald Jesse NFT for your contribution.
             </p>
             <br />
