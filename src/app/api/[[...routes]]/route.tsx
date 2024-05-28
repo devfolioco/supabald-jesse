@@ -186,53 +186,6 @@ app.frame('/confirm', async c => {
           <Heading size={'32'} weight="500" font={'nyght'}>
             Preview Cast
           </Heading>
-
-          {/* {confirmState.devfolio.username} */}
-          {/* <Spacer size="8" /> */}
-          <Box
-            backgroundColor="castBackground"
-            color="castColor"
-            padding="20"
-            borderRadius="8"
-            // borderTopLeftRadius="8"
-            // borderTopRightRadius="8"
-          >
-            {/* <Box>
-              <Image src="http://localhost:3000/devfolio.png" />
-            </Box> */}
-
-            <VStack gap="16">
-              {/* eslint-disable-next-line jsx-a11y/alt-text */}
-              <HStack gap="8">
-                <Text weight="700">Devfolio</Text>
-                {/* color grey not working */}
-                <Text weight="300">@devfolio</Text>
-              </HStack>
-              <VStack gap="20">
-                {/* Not Working */}
-                {/* <HStack>
-                  <Text color="text" weight="300" size="14">
-                    🔵 gm
-                  </Text>
-                  <Text color="text" weight="300" size="14">
-                    @{confirmState.searchUser.username}. @{confirmState.interactor.username}
-                  </Text>
-                  <Text>hu</Text>
-                </HStack> */}
-                {/* <Text color="text" weight="300" size="14">
-                  🔵 gm @{confirmState.searchUser.username}. @{confirmState.interactor.username} thinks {"you're"} a
-                  super based builder, and has nominated you for the Onchain Summer Buildathon.
-                </Text> */}
-                <Text color="text" weight="300" size="14">
-                  🔵 gm @{confirmState.searchUser.username}. Someone thinks {"you're"} a
-                  super based builder, and has nominated you for the Onchain Summer Buildathon.
-                </Text>
-                <Text color="text" weight="300" size="14">
-                  Participate, mint your SupaBald Jesse NFT, and just build it. LFG 🛠️
-                </Text>
-              </VStack>
-            </VStack>
-          </Box>
         </VStack>
       </Box>
     ),
