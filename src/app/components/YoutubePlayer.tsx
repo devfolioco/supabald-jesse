@@ -44,7 +44,7 @@ const YoutubePlayer = ({ url }: { url: string }) => {
 
   return (
     <div ref={videoContainerRef} className="w-full">
-      <div className="video-container w-full transform-top-50-video mb-16  flex justify-center items-center">
+      <div className="video-container w-full transform-top-50-video flex justify-center items-center rounded-[8px] md:rounded-[24px] overflow-hidden">
         <ReactPlayer
           width="100%"
           height="100%" //200px
@@ -60,8 +60,6 @@ const YoutubePlayer = ({ url }: { url: string }) => {
             outline: 'none',
             border: 'none',
             boxShadow: 'none',
-            borderRadius: '24px',
-            overflow: 'hidden',
             aspectRatio: '16/9',
           }}
           url={url}

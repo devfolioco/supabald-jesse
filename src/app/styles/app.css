@@ -81,12 +81,7 @@
 }
 
 .video-container {
-  background: #99b6c5;
   position: relative;
-}
-
-.video-container video {
-  border-radius: 24px;
 }
 
 .video-container .control-btn {
