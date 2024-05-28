@@ -189,12 +189,6 @@ app.frame('/confirm', async c => {
           <Heading size={'32'} weight="500" font={'nyght'}>
             Preview Cast
           </Heading>
-          <Text>🔵 gm @{searchUser.username}. @{interactor.username} thinks {"you're"} a super based builder, and has nominated you for the Onchain Summer Buildathon.
-
-            Hop in, mint your SupaBald Jesse NFT, and just build it. LFG
-
-            https://letsgetjessebald.com/`;
-          </Text>
         </VStack>
       </Box>
     ),
