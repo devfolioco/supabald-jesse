@@ -28,7 +28,8 @@ const OnchainTypography = () => {
       className="w-screen overflow-hidden"
       variants={variants}
       initial="hidden"
-      whileInView="visible"
+      whileInView={isDesktop ? 'visible' : undefined}
+      animate={!isDesktop ? 'visible' : undefined}
       exit="hidden"
       viewport={{
         amount: 0,
