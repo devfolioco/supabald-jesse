@@ -4,6 +4,7 @@ import { handle } from 'frog/next';
 import { neynar as neynarMiddleware, NeynarUser as NeynarMiddlewareUser } from 'frog/middlewares';
 import { devtools } from 'frog/dev';
 import { serveStatic } from 'frog/serve-static';
+import { v4 } from "uuid"
 
 import { NeynarAPIClient } from '@neynar/nodejs-sdk';
 import type { User as NeynarUserV1 } from '@neynar/nodejs-sdk/build/neynar-api/v1';
@@ -77,7 +78,7 @@ app.frame('/', c => {
       <Button.Link key={1} href={APP_URL}>
         Mint your NFT
       </Button.Link>,
-      <Button key={2} action={'/nominate'}>
+      <Button key={2} action={`/nominate/${v4()}`}>
         Nominate a fren
       </Button>,
       <Button.Link key={3} href={OPENSEA_COLLECTION}>
@@ -87,7 +88,7 @@ app.frame('/', c => {
   });
 });
 
-app.frame('/nominate', c => {
+app.frame('/nominate/:id', c => {
   return c.res({
     title: 'SupaBald Jesse | Nominate',
     image: (
@@ -107,14 +108,14 @@ app.frame('/nominate', c => {
     intents: [
       <TextInput key={1} placeholder="Farcaster username or FID" />,
       <Button.Reset key={2}>Back</Button.Reset>,
-      <Button key={3} action="/confirm">
+      <Button key={3} action={`/confirm/${v4()}`}>
         Send Cast
       </Button>,
     ],
   });
 });
 
-app.frame('/confirm', async c => {
+app.frame('/confirm/:id', async c => {
   const interactor = c.var.interactor;
   if (!interactor) {
     // @todo Update Error Message
@@ -235,7 +236,7 @@ https://letsgetjessebald.com/`;
     ),
     intents: [
       <Button.Reset key={1}>👍</Button.Reset>,
-      <Button key={2} action="/nominate">
+      <Button key={2} action={`/nominate/${v4()}`}>
         Nominate another fren
       </Button>,
     ],

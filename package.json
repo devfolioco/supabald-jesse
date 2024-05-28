@@ -22,12 +22,14 @@
     "react-dom": "^18",
     "react-icons": "^5.2.1",
     "react-player": "^2.16.0",
-    "satori": "^0.10.13"
+    "satori": "^0.10.13",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/uuid": "^9.0.8",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "eslint-config-prettier": "^9.1.0",
