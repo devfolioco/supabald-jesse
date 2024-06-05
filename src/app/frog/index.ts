@@ -1,9 +1,6 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
 import { createSystem, defaultVars } from 'frog/ui';
 
+// Read the fonts from local file system (Not working in Production)
 // const nyghtSerifMedium = fs.readFileSync(
 //   path.join(fileURLToPath(import.meta.url), '../../fonts/NyghtSerif-Medium.ttf')
 // );
@@ -12,13 +9,13 @@ import { createSystem, defaultVars } from 'frog/ui';
 // https://assets-devrel.s3.ap-south-1.amazonaws.com/OCS/NyghtSerif-Bold.ttf
 // https://assets-devrel.s3.ap-south-1.amazonaws.com/OCS/NyghtSerif-Medium.ttf
 
-const nyghtSerifMedium = await fetch("https://assets-devrel.s3.ap-south-1.amazonaws.com/OCS/NyghtSerif-Medium.ttf").then(
-  (res) => res.arrayBuffer()
-)
+const nyghtSerifMedium = await fetch(
+  'https://assets-devrel.s3.ap-south-1.amazonaws.com/OCS/NyghtSerif-Medium.ttf'
+).then(res => res.arrayBuffer());
 
-const nyghtSerifBold = await fetch("https://assets-devrel.s3.ap-south-1.amazonaws.com/OCS/NyghtSerif-Bold.ttf").then(
-  (res) => res.arrayBuffer()
-)
+const nyghtSerifBold = await fetch('https://assets-devrel.s3.ap-south-1.amazonaws.com/OCS/NyghtSerif-Bold.ttf').then(
+  res => res.arrayBuffer()
+);
 
 export const { Box, Columns, Column, Divider, Heading, HStack, Icon, Image, Rows, Row, Spacer, Text, VStack, vars } =
   createSystem({
