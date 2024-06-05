@@ -1,7 +1,7 @@
 {
-  "name": "onchain-summer-jesse-campaign",
+  "name": "supabald-jesse",
   "description": "The website that helps build the next based experience at the Onchain Summer Buildathon and make Jesse go bald",
-  "repository": "https://github.com/devfolioco/onchain-summer-jesse-campaign",
+  "repository": "https://github.com/devfolioco/supabald-jesse",
   "version": "1.0.0",
   "private": true,
   "scripts": {
