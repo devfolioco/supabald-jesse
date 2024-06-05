@@ -70,10 +70,22 @@ yarn dev
 
 # Contributing
 
-Feel free to open [issues](https://github.com/devfolioco/onchain-summer-jesse-campaign/issues/new/choose) and [pull requests](https://github.com/devfolioco/onchain-summer-jesse-campaign/pulls)!
+Feel free to open [issues](https://github.com/devfolioco/supabald-jesse/issues/new/choose) and [pull requests](https://github.com/devfolioco/supabald-jesse/pulls)!
+
+## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
 
 ## License
 
-[![LICENSE](https://img.shields.io/github/license/devfolioco/onchain-summer-jesse-campaign)](https://github.com/devfolioco/onchain-summer-jesse-campaign/blob/main/LICENSE)
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+[![LICENSE](https://img.shields.io/github/license/devfolioco/supabald-jesse)](https://github.com/devfolioco/supabald-jesse/blob/main/LICENSE)
