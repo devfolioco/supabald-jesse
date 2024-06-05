@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 
-const useIsMobile = () => {
+const useResponsive = () => {
   const [width, setWidth] = useState(0);
 
   const handleWindowSizeChange = () => {
@@ -12,8 +12,7 @@ const useIsMobile = () => {
     handleWindowSizeChange();
     window.addEventListener('resize', handleWindowSizeChange);
 
-    // Return a function from the effect
-    // that removes the event listener
+    // Clean Up
     return () => {
       window.removeEventListener('resize', handleWindowSizeChange);
     };
@@ -27,4 +26,4 @@ const useIsMobile = () => {
   };
 };
 
-export default useIsMobile;
+export default useResponsive;

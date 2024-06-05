@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Head from 'next/head';
 import ApplePeekArea from './components/ApplePeekArea';
-import { inter } from './fonts/fonts';
 
 export const metadata: Metadata = {
   title: 'Let’s get Jesse bald!',

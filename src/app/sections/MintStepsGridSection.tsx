@@ -12,6 +12,7 @@ const MintStepsGridSection = () => {
           For being based and boosting Base TVL, we&apos;ve got a little reward for you!
         </Ui>
 
+        {/* The 4 step process to mint your NFT */}
         <StepGrid />
       </div>
     </AnimatedSection>

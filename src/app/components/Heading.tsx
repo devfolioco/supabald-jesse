@@ -1,6 +1,11 @@
-import { nyghtMedium, nyghtRegular } from '../fonts/fonts';
+import { nyghtMedium } from '../fonts/fonts';
 
-const Heading = ({ children, className }: { children: React.ReactNode; className?: string }) => {
+interface HeadingProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+const Heading = ({ children, className }: HeadingProps) => {
   return (
     <h1 className={`text-[56px] md:text-[68px] hero-heading ${nyghtMedium.className} ${className ?? ''}`}>
       {children}

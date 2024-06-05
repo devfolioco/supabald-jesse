@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Onchain Summer Jesse Campaign
 
-## Getting Started
+![Preview GIF](https://letsgetjessebald.com/nft-fc.gif)
 
-First, run the development server:
+This repository contains the website and frame for the "Let's get Jesse Bald" campaign by [Devfolio](https://devfolio.co/) for the [Onchain Summer Buildathon](https://onchain-summer.devfolio.co/)
+
+Deployed at https://letsgetjessebald.com/
+
+# Getting Started
+
+### Prerequisites
+
+- Node 18 +
+- Yarn
+
+### Environment Variables
+
+- Create .env.local from .env.example
+- Get Neynar API Keys from https://docs.neynar.com
+
+### Installation
 
 ```bash
-npm run dev
-# or
+# Using yarn (Recommended)
+yarn
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- NextJS with the App Router - https://nextjs.org/
+- Frog.JS for Farcaster Frames - https://frog.fm/
+- TailwindCSS - tailwindcss.com/
+- Framer Motion - https://framer.com/motion/
+- Prettier / ESlint - https://prettier.io/  https://eslint.org/
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# Project Structure
 
-## Learn More
+```bash
+├── .next/
+├── node_modules/
+├── public/
+├── src/
+│   ├── app/
+│   │   ├── api/ # Endpoints for the farcaster frames
+│   │   ├── components/ # all resuable small components
+│   │   ├── fonts/
+│   │   ├── frog/ # contains frog ui for farcaster frames
+│   │   ├── hooks/ # common components logic as hooks
+│   │   ├── sections/ # Landing page sections
+│   │   ├── styles/ # all css
+│   │   ├── utils/ # common helper methods
+│   │   ├── globals.css
+│   │   ├── layout.tsx # html layout
+│   │   ├── page.tsx # main page
+├── .env.local # local env
+├── .eslintrc.json
+├── .gitignore
+├── .prettierrc.js
+├── next-env.d.ts
+├── next.config.mjs
+├── package.json
+├── postcss.config.mjs
+├── README.md
+├── tailwind.config.ts
+├── tsconfig.json
+├── yarn.lock
 
-To learn more about Next.js, take a look at the following resources:
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Contributing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Feel free to open [issues](https://github.com/devfolioco/onchain-summer-jesse-campaign/issues/new/choose) and [pull requests](https://github.com/devfolioco/onchain-summer-jesse-campaign/pulls)!
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[![LICENSE](https://img.shields.io/github/license/devfolioco/onchain-summer-jesse-campaign)](https://github.com/devfolioco/onchain-summer-jesse-campaign/blob/main/LICENSE)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

@@ -1,3 +1,5 @@
+/* Background Styles */
+
 .bg-primary {
   background-color: var(--primary);
 }
@@ -9,6 +11,8 @@
 .bg-grid-white {
   background-image: url('/grid-white.png');
 }
+
+/* Design Text Styles */
 
 .hero-heading {
   color: #f3f3f3;
@@ -28,6 +32,8 @@
   font-weight: 300;
   line-height: 150%;
 }
+
+/* Button and its variants */
 
 .button {
   display: flex;
@@ -58,6 +64,8 @@
   border: 2px solid #7d98a6;
 }
 
+/* Step Grid Component Styles */
+
 .step-item .step-item-label {
   border: 3px solid #7d98a6;
   background: var(--primary);
@@ -80,32 +88,7 @@
   top: 21px;
 }
 
-.video-container {
-  position: relative;
-}
-
-.video-container .control-btn {
-  border-radius: 50%;
-  position: absolute;
-  background-color: rgba(99, 133, 150);
-}
-
-.video-container .video-overlay {
-  border-radius: 24px;
-  background-color: rgba(99, 133, 150, 0.4);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.video-container .control-btn .play-btn {
-  opacity: 1;
-}
+/* Footer Styles */
 
 .footer {
   color: #8e989c;
@@ -113,6 +96,8 @@
   line-height: 24px;
   border-top: 1px solid #e4eaeb;
 }
+
+/* Translate Video Container to -50% at Y-axis  */
 
 .half-video-height {
   height: calc((var(--video-height)) / 2);
@@ -126,40 +111,7 @@
   margin-bottom: calc(-1 * (var(--video-height)) / 2);
 }
 
-/* Youtube Embed CSS */
-
-.yt-video-responsive {
-  overflow: hidden;
-  padding-bottom: 56.25%;
-  position: relative;
-  height: 0;
-}
-
-.yt-video-responsive iframe {
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-}
-
-.animate-heartbeat {
-  animation: heartbeat 1s ease-in-out infinite;
-}
-
-@keyframes heartbeat {
-  0% {
-    transform: scale(0.9);
-  }
-
-  50% {
-    transform: scale(1);
-  }
-
-  100% {
-    transform: scale(0.9);
-  }
-}
+/* Other Styles */
 
 .ios-peek {
   position: fixed;
@@ -171,5 +123,4 @@
   background: white;
   color: #aeb4b7;
   text-align: center;
-  font-size: 0.7rem;
 }
