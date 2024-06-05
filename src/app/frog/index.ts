@@ -1,13 +1,15 @@
 import { createSystem, defaultVars } from 'frog/ui';
 
 // Read the fonts from local file system (Not working in Production)
+
+// import fs from 'fs';
+// import path from 'path';
+// import { fileURLToPath } from 'url';
+
 // const nyghtSerifMedium = fs.readFileSync(
 //   path.join(fileURLToPath(import.meta.url), '../../fonts/NyghtSerif-Medium.ttf')
 // );
 // const nyghtSerifBold = fs.readFileSync(path.join(fileURLToPath(import.meta.url), '../../fonts/NyghtSerif-Bold.ttf'));
-
-// https://assets-devrel.s3.ap-south-1.amazonaws.com/OCS/NyghtSerif-Bold.ttf
-// https://assets-devrel.s3.ap-south-1.amazonaws.com/OCS/NyghtSerif-Medium.ttf
 
 const nyghtSerifMedium = await fetch(
   'https://assets-devrel.s3.ap-south-1.amazonaws.com/OCS/NyghtSerif-Medium.ttf'

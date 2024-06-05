@@ -1,6 +1,6 @@
 # Onchain Summer Jesse Campaign
 
-This repository contains the website for the "Let's get Jesse Bald" campaign by devfolio for the [OnChain Summer Hackathon](https://onchain-summer.devfolio.co/)
+This repository contains the website and frame for the "Let's get Jesse Bald" campaign by devfolio for the [Onchain Summer Buildathon](https://onchain-summer.devfolio.co/)
 
 Deployed at https://letsgetjessebald.com/
 
@@ -8,7 +8,7 @@ Deployed at https://letsgetjessebald.com/
 
 ### Prerequisites
 
-- node 18 +
+- Node 18 +
 - Yarn
 
 ### Environment Variables
@@ -27,6 +27,7 @@ yarn dev
 # Tech Stack
 
 - NextJS with the App Router
+- Frog.JS for Farcaster Frames
 - TailwindCSS
 - Prettier / ESlint
 
@@ -38,7 +39,7 @@ yarn dev
 ├── public/
 ├── src/
 │   ├── app/
-│   │   ├── api/ # Endpoints for the OpenGraph Images for farcaster frames
+│   │   ├── api/ # Endpoints for the farcaster frames
 │   │   ├── components/ # all resuable small components
 │   │   ├── fonts/
 │   │   ├── frog/ # contains frog ui for farcaster frames
