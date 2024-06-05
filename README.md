@@ -1,6 +1,8 @@
 # Onchain Summer Jesse Campaign
 
-This repository contains the website and frame for the "Let's get Jesse Bald" campaign by devfolio for the [Onchain Summer Buildathon](https://onchain-summer.devfolio.co/)
+![Preview GIF](https://letsgetjessebald.com/nft-fc.gif)
+
+This repository contains the website and frame for the "Let's get Jesse Bald" campaign by [Devfolio](https://devfolio.co/) for the [Onchain Summer Buildathon](https://onchain-summer.devfolio.co/)
 
 Deployed at https://letsgetjessebald.com/
 
@@ -26,10 +28,11 @@ yarn dev
 
 # Tech Stack
 
-- NextJS with the App Router
-- Frog.JS for Farcaster Frames
-- TailwindCSS
-- Prettier / ESlint
+- NextJS with the App Router - https://nextjs.org/
+- Frog.JS for Farcaster Frames - https://frog.fm/
+- TailwindCSS - tailwindcss.com/
+- Framer Motion - https://framer.com/motion/
+- Prettier / ESlint - https://prettier.io/  https://eslint.org/
 
 # Project Structure
 
@@ -71,6 +74,6 @@ Feel free to open [issues](https://github.com/devfolioco/onchain-summer-jesse-ca
 
 ## License
 
-[![NPM](https://img.shields.io/npm/l/react-otp-input)](https://github.com/devfolioco/react-otp-input/blob/master/LICENSE)
+[![LICENSE](https://img.shields.io/github/license/devfolioco/onchain-summer-jesse-campaign)](https://github.com/devfolioco/onchain-summer-jesse-campaign/blob/main/LICENSE)
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
