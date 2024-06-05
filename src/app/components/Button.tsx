@@ -1,19 +1,15 @@
 import Link from 'next/link';
 import { nyghtBold } from '../fonts/fonts';
 
-const Button = ({
-  children,
-  className,
-  href = '/',
-  variant,
-  sameTab = false,
-}: {
+interface ButtonProps {
   children: React.ReactNode;
   className?: string;
   href?: string;
   variant: 'outlined' | 'primary' | 'secondary';
   sameTab?: boolean;
-}) => {
+}
+
+const Button = ({ children, className, href = '/', variant, sameTab = false }: ButtonProps) => {
   return (
     <Link
       href={href}
