@@ -30,8 +30,11 @@ const WhySection = ({ registrationUrl }: { registrationUrl: string }) => {
           </Ui>
 
           <Button href={registrationUrl} variant="primary" className="w-full">
+            {/* All Screens except Tablet */}
             <span className="block md:hidden lg:block"> Register now on Devfolio </span>
-            <span className=" hidden md:block lg:hidden"> Register now </span>
+
+            {/* Only Tablet Screens */}
+            <span className="hidden md:block lg:hidden"> Register now </span>
           </Button>
         </div>
       </div>

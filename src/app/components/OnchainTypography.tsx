@@ -5,6 +5,8 @@ import { Variants, motion, useScroll, useTransform } from 'framer-motion';
 
 const OnchainTypography = () => {
   const { isMobile, isTablet, isDesktop, is2K } = useResponsive();
+
+  /* Typography left and right animation on scroll */
   const { scrollYProgress } = useScroll();
   const scrollYProgressInverted = useTransform(scrollYProgress, [0, 1], [1, 0]);
   const objectPositionMoveLeft = useTransform(scrollYProgress, value => `${-1 * value * 1000}px 100%`);
@@ -35,7 +37,7 @@ const OnchainTypography = () => {
         once: true,
       }}
     >
-      {/* Desktop */}
+      {/* All Desktop Screens */}
       {isDesktop && (
         <>
           {/* Desktop 1080p */}
@@ -89,6 +91,7 @@ const OnchainTypography = () => {
           style={{ width: '100%', height: 'auto' }}
         />
       )}
+
       {/* Mobile */}
       {isMobile && (
         <>

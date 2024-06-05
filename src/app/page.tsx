@@ -11,8 +11,8 @@ import FooterSection from './sections/FooterSection';
 import { APP_URL } from './utils/shared';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const url = APP_URL
-  const frameMetadata = await getFrameMetadata(`${url}/api`)
+  const url = APP_URL;
+  const frameMetadata = await getFrameMetadata(`${url}/api`);
 
   return {
     other: frameMetadata,
@@ -28,7 +28,7 @@ export default function Home({ searchParams }: { searchParams: { ref_code?: stri
       {/* Let's get jesse bald */}
       <HomeSection registrationUrl={registrationUrl} />
 
-      {/* Animated Typograhy */}
+      {/* Animated Typography */}
       <TypographySection />
 
       {/* Because that's what he said... */}
