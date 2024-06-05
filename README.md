@@ -1,10 +1,12 @@
-# Onchain Summer Jesse Campaign
+# SupaBald Jesse
 
 ![Preview GIF](https://letsgetjessebald.com/nft-fc.gif)
 
 This repository contains the website and frame for the "Let's get Jesse Bald" campaign by [Devfolio](https://devfolio.co/) for the [Onchain Summer Buildathon](https://onchain-summer.devfolio.co/)
 
-Deployed at https://letsgetjessebald.com/
+[![Deployment](https://img.shields.io/website?url=https%3A%2F%2Fletsgetjessebald.com%2F&up_message=https%3A%2F%2Fletsgetjessebald.com%2F&logo=curl&label=Deployment)](https://letsgetjessebald.com/)
+
+[![Build Status](https://img.shields.io/github/deployments/devfolioco/supabald-jesse/production?logo=github&label=Build%20Status)](https://github.com/devfolioco/supabald-jesse/deployments/Production)
 
 # Getting Started
 
@@ -88,4 +90,4 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 ## License
 
-[![LICENSE](https://img.shields.io/github/license/devfolioco/supabald-jesse)](https://github.com/devfolioco/supabald-jesse/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/devfolioco/supabald-jesse#reload)](https://github.com/devfolioco/supabald-jesse/blob/main/LICENSE)
