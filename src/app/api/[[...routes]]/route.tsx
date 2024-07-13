@@ -117,14 +117,17 @@ app.frame('/nominate/:id', c => {
       </Box>
     ),
     intents: [
-      <Button.Link key={1} href='https://onchain-summer.devfolio.co/projects'>
+      <Button.Redirect key={1} location='https://onchain-summer.devfolio.co/projects'>
         🛠 View projects
-      </Button.Link>,
+      </Button.Redirect>,
       <Button.Link key={2} href='https://warpcast.com/devfolio'>
         🧢 Follow Devfolio
       </Button.Link>,
       <Button.Link key={3} href='https://devfolio.co/blog/supabald-jesse/'>
-        📖 Read more about SupaBald Jesse
+        📖 Read more
+      </Button.Link>,
+      <Button.Link key={3} href={OPENSEA_COLLECTION}>
+        🗂️ View collection
       </Button.Link>,
     ],
   });
