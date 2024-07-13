@@ -99,7 +99,10 @@ app.frame('/nominate/:id', c => {
 
           <Text color="text" weight="300" size="24">
             And magnificently so! Here&apos;s a retro
+
           </Text>
+          {/*
+          // @ts-expect-error Ignore the error with <br/> */}
           <Text color="text" weight="300" size="24">
             Builders: 10066
             <br />
