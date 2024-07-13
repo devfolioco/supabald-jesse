@@ -86,6 +86,7 @@ app.frame('/', c => {
   });
 });
 
+// Disable Nomination
 app.frame('/nominate/:id', c => {
   return c.res({
     title: 'SupaBald Jesse | Nominate',
@@ -93,24 +94,64 @@ app.frame('/nominate/:id', c => {
       <Box grow alignVertical="center" backgroundColor="background" padding="32" position="relative">
         <VStack gap="16">
           <Heading size={'48'} weight="500" font={'nyght'}>
-            Nominate a fren
+            The Buildathon has ended
           </Heading>
 
           <Text color="text" weight="300" size="24">
-            Frens don’t let frens miss out on opportunities. Ask a fren to join you at the Onchain Summer Buildathon.
+            And magnificently so! Here&apos;s a retro
+          </Text>
+          <Text color="text" weight="300" size="24">
+            Builders: 10066
+            <br />
+            NFTs claimed: 8851
+            <br />
+            Projects built: 1255
+          </Text>
+          <Text color="text" weight="300" size="24">
+            Onchain Summer is based
           </Text>
         </VStack>
       </Box>
     ),
     intents: [
-      <TextInput key={1} placeholder="Farcaster username or FID" />,
-      <Button.Reset key={2}>Back</Button.Reset>,
-      <Button key={3} action={`/confirm/${v4()}`}>
-        Send Cast
-      </Button>,
+      <Button.Link key={1} href='https://onchain-summer.devfolio.co/projects'>
+        🛠 View projects
+      </Button.Link>,
+      <Button.Link key={2} href='https://warpcast.com/devfolio'>
+        🧢 Follow Devfolio
+      </Button.Link>,
+      <Button.Link key={3} href='https://devfolio.co/blog/supabald-jesse/'>
+        📖 Read more about SupaBald Jesse
+      </Button.Link>,
     ],
   });
 });
+
+// app.frame('/nominate/:id', c => {
+//   return c.res({
+//     title: 'SupaBald Jesse | Nominate',
+//     image: (
+//       <Box grow alignVertical="center" backgroundColor="background" padding="32" position="relative">
+//         <VStack gap="16">
+//           <Heading size={'48'} weight="500" font={'nyght'}>
+//             Nominate a fren
+//           </Heading>
+
+//           <Text color="text" weight="300" size="24">
+//             Frens don’t let frens miss out on opportunities. Ask a fren to join you at the Onchain Summer Buildathon.
+//           </Text>
+//         </VStack>
+//       </Box>
+//     ),
+//     intents: [
+//       <TextInput key={1} placeholder="Farcaster username or FID" />,
+//       <Button.Reset key={2}>Back</Button.Reset>,
+//       <Button key={3} action={`/confirm/${v4()}`}>
+//         Send Cast
+//       </Button>,
+//     ],
+//   });
+// });
 
 app.frame('/confirm/:id', async c => {
   const interactor = c.var.interactor;
