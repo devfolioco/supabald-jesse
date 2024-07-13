@@ -22,17 +22,18 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function Home({ searchParams }: { searchParams: { ref_code?: string } }) {
   const referralCode = searchParams.ref_code;
   const registrationUrl = `https://onchain-summer.devfolio.co${referralCode ? '?ref_code=' + referralCode : ''}`;
+  const projectsUrl = `https://onchain-summer.devfolio.co/projects${referralCode ? '?ref_code=' + referralCode : ''}`;
 
   return (
     <main className="flex flex-col items-center min-h-screen w-screen bg-grid bg-primary">
       {/* Let's get jesse bald */}
-      <HomeSection registrationUrl={registrationUrl} />
+      <HomeSection projectsUrl={projectsUrl} />
 
       {/* Animated Typography */}
       <TypographySection />
 
       {/* Because that's what he said... */}
-      <WhySection registrationUrl={registrationUrl} />
+      <WhySection projectsUrl={projectsUrl} />
 
       {/* Mint your SupaBald Jesse NFT */}
       <MintStepsGridSection />
@@ -41,7 +42,7 @@ export default function Home({ searchParams }: { searchParams: { ref_code?: stri
       <VideoSection />
 
       {/* Footer & Animated */}
-      <FooterSection registrationUrl={registrationUrl} />
+      <FooterSection />
     </main>
   );
 }
