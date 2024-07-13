@@ -120,14 +120,8 @@ app.frame('/nominate/:id', c => {
       <Button.Redirect key={1} location='https://onchain-summer.devfolio.co/projects'>
         🛠 View projects
       </Button.Redirect>,
-      <Button.Link key={2} href='https://warpcast.com/devfolio'>
-        🧢 Follow Devfolio
-      </Button.Link>,
       <Button.Link key={3} href='https://devfolio.co/blog/supabald-jesse/'>
         📖 Read more
-      </Button.Link>,
-      <Button.Link key={3} href={OPENSEA_COLLECTION}>
-        🗂️ View collection
       </Button.Link>,
     ],
   });
