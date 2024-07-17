@@ -108,7 +108,7 @@ app.frame('/nominate/:id', c => {
             <br />
             Projects built: 1200+
             <br />
-            SupaBald Jesse&apos;s claimed: 8851
+            SupaBald Jesse&apos;s claimed: 8850+
           </Text>
         </VStack>
       </Box>
