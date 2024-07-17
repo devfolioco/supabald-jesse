@@ -13,7 +13,7 @@ import type { User as NeynarUserV2 } from '@neynar/nodejs-sdk/build/neynar-api/v
 import { Box, Heading, Text, VStack, vars } from '../../frog';
 
 import { APP_URL, isNumeric } from '../../utils/shared';
-import { OPENSEA_COLLECTION, BLOG_URL, PROJECTS_URL } from '@/app/constants/urls';
+import { OPENSEA_COLLECTION, BLOG_URL, PROJECTS_URL } from '../../constants/urls';
 
 const NEYNAR_API_KEY = process.env.NEYNAR_API_KEY ?? '';
 const NEYNAR_SIGNER = process.env.NEYNAR_SIGNER ?? '';
