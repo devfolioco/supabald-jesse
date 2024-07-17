@@ -12,7 +12,8 @@ import type { User as NeynarUserV2 } from '@neynar/nodejs-sdk/build/neynar-api/v
 
 import { Box, Heading, Text, VStack, vars } from '../../frog';
 
-import { APP_URL, OPENSEA_COLLECTION, isNumeric } from '../../utils/shared';
+import { APP_URL, isNumeric } from '../../utils/shared';
+import { OPENSEA_COLLECTION } from '@/app/constants/Urls';
 
 const NEYNAR_API_KEY = process.env.NEYNAR_API_KEY ?? '';
 const NEYNAR_SIGNER = process.env.NEYNAR_SIGNER ?? '';
@@ -99,7 +100,6 @@ app.frame('/nominate/:id', c => {
 
           <Text color="text" weight="300" size="24">
             And magnificently so! Here&apos;s a retro
-
           </Text>
           {/*
           // @ts-expect-error Ignore the error with <br/> */}
@@ -117,10 +117,10 @@ app.frame('/nominate/:id', c => {
       </Box>
     ),
     intents: [
-      <Button.Redirect key={1} location='https://onchain-summer.devfolio.co/projects'>
+      <Button.Redirect key={1} location="https://onchain-summer.devfolio.co/projects">
         🛠 View projects
       </Button.Redirect>,
-      <Button.Link key={3} href='https://devfolio.co/blog/supabald-jesse/'>
+      <Button.Link key={3} href="https://devfolio.co/blog/supabald-jesse/">
         📖 Read more
       </Button.Link>,
     ],
