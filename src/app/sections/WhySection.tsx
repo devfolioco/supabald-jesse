@@ -24,9 +24,15 @@ const WhySection = ({ projectsUrl }: { projectsUrl: string }) => {
         <div className="flex flex-col gap-14">
           <Ui className="md:max-w-[306px] lg:max-w-[1280px] 2k:max-w-[1350px]">
             <p>
-              In a galaxy not so far away, the <Tooltip message={baseGodScreenshot}>Base God commune</Tooltip> to be
-              precise, Jesse committed to shaving his head off when Base hits 10 billion in TVL. Join this quest to hold
-              him accountable and claim a SupaBald Jesse NFT for your contribution.
+              In a galaxy not so far away, the{' '}
+              <Tooltip className="hidden md:inline-flex" message={baseGodScreenshot}>
+                Base God commune
+              </Tooltip>
+              <a className="inline md:hidden underline" href="/base-god-ss.png" target="_blank">
+                Base God commune
+              </a>{' '}
+              to be precise, Jesse committed to shaving his head off when Base hits 10 billion in TVL. Join this quest
+              to hold him accountable and claim a SupaBald Jesse NFT for your contribution.
             </p>
             <br />
             <p>

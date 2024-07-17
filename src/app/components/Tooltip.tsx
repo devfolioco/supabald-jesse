@@ -1,12 +1,14 @@
 const Tooltip = ({
   children,
   message,
+  className,
 }: {
   children: React.ReactElement | string;
   message: React.ReactElement | string;
+  className?: string;
 }) => {
   return (
-    <span className="inline-flex group relative max-w-max flex-col items-center justify-center">
+    <span className={`inline-flex group relative max-w-max flex-col items-center justify-center ${className}`}>
       <span className="underline cursor-pointer">{children}</span>
       <span className="absolute left-1/2 top-10 ml-auto mr-auto min-w-max -translate-x-1/2 opacity-0 transform rounded-lg px-3 py-2 text-xs font-medium transition-opacity duration-300 group-hover:opacity-100 origin-top pointer-events-none">
         <span className="flex max-w-xs flex-col items-center shadow-lg">
