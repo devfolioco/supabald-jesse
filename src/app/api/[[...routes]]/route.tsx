@@ -95,20 +95,20 @@ app.frame('/nominate/:id', c => {
       <Box grow alignVertical="center" backgroundColor="background" padding="32" position="relative">
         <VStack gap="16">
           <Heading size={'48'} weight="500" font={'nyght'}>
-            The Buildathon has ended
+            Buildathon has ended
           </Heading>
 
           <Text color="text" weight="300" size="24">
-            And magnificently so! Here&apos;s a retro
+            Here&apos;s how based it was
           </Text>
           {/*
           // @ts-expect-error Ignore the error with <br/> */}
           <Text color="text" weight="300" size="24">
-            Builders: 10066
+            Builders: 10,000+
             <br />
-            NFTs claimed: 8851
+            Projects built: 1200+
             <br />
-            Projects built: 1255
+            SupaBald Jesse&apos;s claimed: 8851
           </Text>
           <Text color="text" weight="300" size="24">
             Onchain Summer is based
