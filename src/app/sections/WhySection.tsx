@@ -4,7 +4,7 @@ import Button from '../components/Button';
 import Heading from '../components/Heading';
 import Tooltip from '../components/Tooltip';
 import Ui from '../components/Ui';
-import { BLOG_URL } from '../constants/Urls';
+import { BLOG_URL } from '../constants/urls';
 
 const baseGodScreenshot = (
   <Image
@@ -12,7 +12,7 @@ const baseGodScreenshot = (
     height={214}
     className="max-w-[402px] h-[auto] rounded-lg"
     src="/base-god-ss.png"
-    alt="Base God Mesage on telegram"
+    alt="Base God Message on Telegram"
   />
 );
 

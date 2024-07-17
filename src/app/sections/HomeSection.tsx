@@ -3,7 +3,7 @@ import Ui from '../components/Ui';
 import Button from '../components/Button';
 import Heading from '../components/Heading';
 import Link from 'next/link';
-import { BLOG_URL } from '../constants/Urls';
+import { BLOG_URL } from '../constants/urls';
 
 const HomeSection = ({ projectsUrl }: { projectsUrl: string }) => {
   return (
