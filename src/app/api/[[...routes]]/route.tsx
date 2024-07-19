@@ -99,7 +99,7 @@ app.frame('/nominate/:id', c => {
           </Heading>
 
           <Text color="text" weight="300" size="24">
-            Here&apos;s how based it was
+            Here&apos;s how based it was!
           </Text>
           {/*
           // @ts-expect-error Ignore the error with <br/> */}
