@@ -1,7 +1,7 @@
 import Button from '../components/Button';
 import Footer from '../components/Footer';
 import OnchainTypography from '../components/OnchainTypography';
-import { OPENSEA_COLLECTION } from '../constants/Urls';
+import { OPENSEA_COLLECTION } from '../constants/urls';
 
 const FooterSection = () => {
   return (

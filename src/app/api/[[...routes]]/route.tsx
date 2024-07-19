@@ -13,7 +13,7 @@ import type { User as NeynarUserV2 } from '@neynar/nodejs-sdk/build/neynar-api/v
 import { Box, Heading, Text, VStack, vars } from '../../frog';
 
 import { APP_URL, isNumeric } from '../../utils/shared';
-import { OPENSEA_COLLECTION } from '@/app/constants/Urls';
+import { OPENSEA_COLLECTION, BLOG_URL, PROJECTS_URL } from '../../constants/urls';
 
 const NEYNAR_API_KEY = process.env.NEYNAR_API_KEY ?? '';
 const NEYNAR_SIGNER = process.env.NEYNAR_SIGNER ?? '';
@@ -108,19 +108,16 @@ app.frame('/nominate/:id', c => {
             <br />
             Projects built: 1200+
             <br />
-            SupaBald Jesse&apos;s claimed: 8851
-          </Text>
-          <Text color="text" weight="300" size="24">
-            Onchain Summer is based
+            SupaBald Jesse&apos;s claimed: 8850+
           </Text>
         </VStack>
       </Box>
     ),
     intents: [
-      <Button.Redirect key={1} location="https://onchain-summer.devfolio.co/projects">
+      <Button.Redirect key={1} location={PROJECTS_URL}>
         🛠 View projects
       </Button.Redirect>,
-      <Button.Link key={3} href="https://devfolio.co/blog/supabald-jesse/">
+      <Button.Link key={3} href={BLOG_URL}>
         📖 Read more
       </Button.Link>,
     ],
