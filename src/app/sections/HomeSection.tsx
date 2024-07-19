@@ -3,8 +3,9 @@ import Ui from '../components/Ui';
 import Button from '../components/Button';
 import Heading from '../components/Heading';
 import Link from 'next/link';
+import { BLOG_URL } from '../constants/urls';
 
-const HomeSection = ({ registrationUrl }: { registrationUrl: string }) => {
+const HomeSection = ({ projectsUrl }: { projectsUrl: string }) => {
   return (
     <section className="flex flex-col items-center px-6 md:px-8 lg:px-0">
       <Image
@@ -29,10 +30,10 @@ const HomeSection = ({ registrationUrl }: { registrationUrl: string }) => {
         </Ui>
       </div>
       <div className="w-full grid grid-rows-2 md:grid-cols-2 gap-[16px] md:gap-[24px] mt-[68px] md:mt-8">
-        <Button href={registrationUrl} variant="primary" className="w-full">
-          Register now
+        <Button href={projectsUrl} variant="primary" className="w-full">
+          View projects
         </Button>
-        <Button href="#why" sameTab variant="outlined" className="w-full">
+        <Button href={BLOG_URL} variant="outlined" className="w-full">
           Why would he go bald?
         </Button>
       </div>
